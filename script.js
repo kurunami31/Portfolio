@@ -262,4 +262,35 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
   });
 });
 
+var sectionDots = document.querySelectorAll('.dot');
+var sections = [];
+
+sectionDots.forEach(function (dot) {
+  var id = dot.getAttribute('data-target');
+  var el = document.getElementById(id);
+  if (el) {
+    sections.push(el);
+    dot.addEventListener('click', function () {
+      el.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+});
+
+function updateActiveDot() {
+  var scrollPos = window.scrollY + 150;
+  var active = null;
+  for (var i = 0; i < sections.length; i++) {
+    if (sections[i].offsetTop <= scrollPos) {
+      active = i;
+    }
+  }
+  if (active !== null) {
+    sectionDots.forEach(function (d) { d.classList.remove('active'); });
+    sectionDots[active].classList.add('active');
+  }
+}
+
+window.addEventListener('scroll', updateActiveDot, { passive: true });
+updateActiveDot();
+
 
