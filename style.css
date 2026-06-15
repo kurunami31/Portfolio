@@ -979,21 +979,19 @@ section {
   transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.skill-donut-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.skill-donut {
-  width: 28px;
-  height: 28px;
+.skill-percent {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent-start);
   flex-shrink: 0;
-  transform: rotate(-90deg);
+  min-width: 32px;
+  text-align: right;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.skill-donut-fill {
-  transition: stroke-dashoffset 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+.skill-percent.show {
+  opacity: 1;
 }
 
 .opensource {
