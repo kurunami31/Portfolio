@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christopher Lyod B. Mercado | Portfolio</title>
+  <meta name="description" content="Portfolio of Christopher Lyod B. Mercado — 3rd Year BSIT student at Davao Oriental State University and web developer.">
+  <meta property="og:title" content="Christopher Lyod B. Mercado | Portfolio">
+  <meta property="og:description" content="3rd Year BSIT student at Davao Oriental State University building digital experiences through web development.">
+  <meta property="og:image" content="christopher.webp">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Christopher Lyod B. Mercado",
+    "jobTitle": "BSIT Student",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Davao Oriental State University"
+    },
+    "url": "https://kurunami31.github.io/Portfolio/",
+    "sameAs": [
+      "https://www.facebook.com/Christoph3101",
+      "https://www.instagram.com/thechristopher_d/"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <div class="loader" id="loader">
+    <div class="loader-spinner"></div>
+  </div>
+
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo"><img src="clm-logo.svg" alt="CLM" width="32" height="32"></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="theme-icon moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="theme-icon sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-overlay" id="mobileOverlay">
+    <div class="mobile-nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-label">3rd Year BSIT Student</p>
+      <h1 class="hero-title">Christopher<br>Lyod B. Mercado</h1>
+      <p class="hero-subtitle">Davao Oriental State University</p>
+      <p class="hero-desc" id="heroDesc" data-text="Building digital experiences through web development, crafting systems that solve real problems and deliver value."></p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+        <button class="btn btn-ghost" id="printCv">Download CV</button>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image reveal">
+          <img src="christopher.webp" alt="Christopher Lyod B. Mercado" loading="lazy">
+        </div>
+        <div class="about-text reveal">
+          <h2 class="section-title">About the Dev</h2>
+          <p class="about-bio">
+            I'm Christopher Lyod B. Mercado, a 3rd year BSIT student at Davao Oriental State University. I build things for the web — from recommender systems and pastry shop sites to interactive photo booth platforms. Every project is an opportunity to learn something new and push what I can do with code.
+          </p>
+          <div class="about-details">
+            <div class="detail-item">
+              <span class="detail-label">University</span>
+              <span class="detail-value">Davao Oriental State University</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Program</span>
+              <span class="detail-value">BS Information Technology</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Year Level</span>
+              <span class="detail-value">3rd Year</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Focus</span>
+              <span class="detail-value">Web Development</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-desc">Live web systems I've built and deployed</p>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card reveal reveal-delay-1" data-project="0">
+          <div class="project-preview" style="background: linear-gradient(135deg, #1e3a5f, #2d5f8a);">
+            <div class="browser-bar">
+              <span class="browser-dot"></span>
+              <span class="browser-dot"></span>
+              <span class="browser-dot"></span>
+            </div>
+            <div class="preview-badge">Live</div>
+            <div class="preview-content">
+              <img src="dorsu-logo.webp" alt="DOrSU" class="project-logo">
+            </div>
+            <div class="preview-pattern"></div>
+          </div>
+          <div class="project-info">
+            <h3>DOrSU Program Recommender</h3>
+            <p>An intelligent recommendation system that helps incoming students find their ideal college program based on their interests and academic strengths.</p>
+            <span class="project-link">View Details</span>
+          </div>
+        </div>
+        <div class="project-card reveal reveal-delay-2" data-project="1">
+          <div class="project-preview" style="background: linear-gradient(135deg, #4a1a2a, #7a2d4a);">
+            <div class="browser-bar">
+              <span class="browser-dot"></span>
+              <span class="browser-dot"></span>
+              <span class="browser-dot"></span>
+            </div>
+            <div class="preview-badge">Live</div>
+            <div class="preview-content">
+              <img src="SweetWorks(logo).jpg" alt="SweetWorks" class="project-logo logo-circle">
+            </div>
+            <div class="preview-pattern"></div>
+          </div>
+          <div class="project-info">
+            <h3>SweetWorks Pastry Shop</h3>
+            <p>An artisan pastry shop web presence showcasing custom cakes, dessert services, and online ordering capabilities based in Mati City.</p>
+            <span class="project-link">View Details</span>
+          </div>
+        </div>
+        <div class="project-card reveal reveal-delay-3" data-project="2">
+          <div class="project-preview" style="background: linear-gradient(135deg, #1a3a2a, #2a5a3a);">
+            <div class="browser-bar">
+              <span class="browser-dot"></span>
+              <span class="browser-dot"></span>
+              <span class="browser-dot"></span>
+            </div>
+            <div class="preview-badge">Live</div>
+            <div class="preview-content">
+              <img src="Resibooth.png" alt="Resibooth" class="project-logo">
+            </div>
+            <div class="preview-pattern"></div>
+          </div>
+          <div class="project-info">
+            <h3>Resibooth</h3>
+            <p>A self-service photo booth platform that enables users to capture, customize, and share photo booth experiences entirely online.</p>
+            <span class="project-link">View Details</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Skills & Tools</h2>
+        <p class="section-desc">Technologies I work with to bring ideas to life</p>
+      </div>
+      <div class="skills-grid reveal">
+        <span class="skill-tag">HTML & CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">PHP</span>
+        <span class="skill-tag">MySQL</span>
+        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Bootstrap</span>
+        <span class="skill-tag">Tailwind CSS</span>
+        <span class="skill-tag">Git & GitHub</span>
+        <span class="skill-tag">REST APIs</span>
+        <span class="skill-tag">Render</span>
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">UI Design</span>
+        <span class="skill-tag">Adobe Premiere Pro</span>
+        <span class="skill-tag">Adobe Photoshop</span>
+        <span class="skill-tag">Lightroom Classic</span>
+        <span class="skill-tag">Adobe Illustrator</span>
+        <span class="skill-tag">Adobe After Effects</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Testimonials</h2>
+        <p class="section-desc">Feedback from people I've worked with</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="testimonial-quote">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+          </div>
+          <p class="testimonial-text">This space is reserved for a testimonial from a professor, client, or collaborator. Reach out if you'd like to leave one.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"></div>
+            <div>
+              <span class="testimonial-name">Your Name Here</span>
+              <span class="testimonial-role">Role / Affiliation</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="testimonial-quote">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+          </div>
+          <p class="testimonial-text">This space is reserved for a testimonial from a professor, client, or collaborator. Reach out if you'd like to leave one.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"></div>
+            <div>
+              <span class="testimonial-name">Your Name Here</span>
+              <span class="testimonial-role">Role / Affiliation</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="testimonial-quote">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+          </div>
+          <p class="testimonial-text">This space is reserved for a testimonial from a professor, client, or collaborator. Reach out if you'd like to leave one.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"></div>
+            <div>
+              <span class="testimonial-name">Your Name Here</span>
+              <span class="testimonial-role">Role / Affiliation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Get in Touch</h2>
+        <p class="section-desc">Let's connect and build something</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="contact-group">
+            <h4 class="contact-group-title">Email</h4>
+            <a href="mailto:dms.prime3101@gmail.com" class="contact-link">dms.prime3101@gmail.com</a>
+            <a href="mailto:dms.official31@yahoo.com" class="contact-link">dms.official31@yahoo.com</a>
+          </div>
+          <div class="contact-group">
+            <h4 class="contact-group-title">Social</h4>
+            <div class="social-links">
+              <a href="https://www.facebook.com/Christoph3101" target="_blank" class="social-link" aria-label="Facebook">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                <span>Facebook</span>
+              </a>
+              <a href="https://www.instagram.com/thechristopher_d/" target="_blank" class="social-link" aria-label="Instagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                <span>Instagram</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form reveal reveal-delay-1" id="contactForm" action="https://formspree.io/f/xojzyrlj" method="POST">
+          <div class="form-field">
+            <input type="text" name="name" placeholder="Your Name" required>
+          </div>
+          <div class="form-field">
+            <input type="email" name="_replyto" placeholder="Your Email" required>
+          </div>
+          <div class="form-field">
+            <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Christopher Lyod B. Mercado. Built with purpose.</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <div class="toast" id="toast"></div>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <button class="modal-close" aria-label="Close modal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
