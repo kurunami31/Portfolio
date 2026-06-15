@@ -230,7 +230,7 @@ if (contactForm) {
         body: new FormData(this)
       }).then(function (r) {
         if (r.ok) {
-          showToast('Message sent -- thanks for reaching out');
+          showToast('Message sent -- check spam folder if not received');
           contactForm.reset();
         } else {
           showToast('Something went wrong. Try emailing directly.');
