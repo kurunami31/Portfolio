@@ -9,8 +9,11 @@
   <meta property="og:description" content="3rd Year BSIT student at Davao Oriental State University building digital experiences through web development.">
   <meta property="og:image" content="christopher.webp">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kurunami31.github.io/Portfolio/">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#070707">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,23 +44,26 @@
     <div class="loader-spinner"></div>
   </div>
 
+  <div class="scroll-progress" id="scrollProgress"></div>
+
   <div class="cursor-follower" id="cursorFollower"></div>
 
-  <nav class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-container">
-      <a href="#" class="nav-logo"><img src="clm-logo.svg" alt="CLM" width="32" height="32"></a>
-      <div class="nav-links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#contact">Contact</a>
+      <a href="#" class="nav-logo" aria-label="Home"><img src="clm-logo.svg" alt="CLM" width="32" height="32"></a>
+      <div class="nav-links" id="navLinks" role="menubar">
+        <a href="#about" role="menuitem">About</a>
+        <a href="#timeline" role="menuitem">Timeline</a>
+        <a href="#projects" role="menuitem">Projects</a>
+        <a href="#skills" role="menuitem">Skills</a>
+        <a href="#writing" role="menuitem">Writing</a>
+        <a href="#contact" role="menuitem">Contact</a>
       </div>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <svg class="theme-icon moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        <svg class="theme-icon sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <button class="theme-toggle" id="themeToggle" aria-label="Switch between dark and light theme">
+        <svg class="theme-icon moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="theme-icon sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
       </button>
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -65,27 +71,39 @@
     </div>
   </nav>
 
-  <div class="mobile-overlay" id="mobileOverlay">
+  <div class="mobile-overlay" id="mobileOverlay" role="dialog" aria-label="Navigation menu">
     <div class="mobile-nav-links">
       <a href="#about">About</a>
+      <a href="#timeline">Timeline</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
-      <a href="#testimonials">Testimonials</a>
+      <a href="#writing">Writing</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
 
-  <section class="hero">
+  <div class="section-dots" id="sectionDots" role="navigation" aria-label="Section navigation">
+    <button class="dot active" data-target="hero" aria-label="Go to top"></button>
+    <button class="dot" data-target="about" aria-label="Go to about"></button>
+    <button class="dot" data-target="timeline" aria-label="Go to timeline"></button>
+    <button class="dot" data-target="projects" aria-label="Go to projects"></button>
+    <button class="dot" data-target="skills" aria-label="Go to skills"></button>
+    <button class="dot" data-target="writing" aria-label="Go to writing"></button>
+    <button class="dot" data-target="contact" aria-label="Go to contact"></button>
+  </div>
+
+  <section class="hero" id="hero" aria-label="Introduction">
     <div class="hero-bg"></div>
+    <canvas class="particle-canvas" id="particleCanvas" aria-hidden="true"></canvas>
     <div class="hero-content">
       <p class="hero-label">3rd Year BSIT Student</p>
       <h1 class="hero-title">Christopher<br>Lyod B. Mercado</h1>
       <p class="hero-subtitle">Davao Oriental State University</p>
       <p class="hero-desc" id="heroDesc" data-text="Building digital experiences through web development, crafting systems that solve real problems and deliver value."></p>
       <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#projects" class="btn btn-primary" aria-label="View my projects">View Projects</a>
         <a href="#contact" class="btn btn-secondary">Get in Touch</a>
-        <button class="btn btn-ghost" id="printCv">Download CV</button>
+        <button class="btn btn-ghost" id="printCv" aria-label="Download or print CV">Download CV</button>
       </div>
     </div>
     <div class="scroll-indicator">
@@ -94,11 +112,11 @@
     </div>
   </section>
 
-  <section id="about" class="about">
+  <section id="about" class="about" aria-label="About me">
     <div class="container">
       <div class="about-grid">
         <div class="about-image reveal">
-          <img src="christopher.webp" alt="Christopher Lyod B. Mercado" loading="lazy">
+          <img src="christopher.webp" alt="Portrait of Christopher Lyod B. Mercado" loading="lazy">
         </div>
         <div class="about-text reveal">
           <h2 class="section-title">About the Dev</h2>
@@ -120,7 +138,7 @@
             </div>
             <div class="detail-item">
               <span class="detail-label">Focus</span>
-              <span class="detail-value">Web Development</span>
+              <span class="detail-value">Web Development & Design</span>
             </div>
           </div>
         </div>
@@ -128,14 +146,64 @@
     </div>
   </section>
 
-  <section id="projects" class="projects">
+  <section id="timeline" class="timeline" aria-label="Career timeline">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Timeline</h2>
+        <p class="section-desc">Key milestones from my journey</p>
+      </div>
+      <div class="timeline-track">
+        <div class="timeline-line"></div>
+        <div class="timeline-item reveal" data-year="2023">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-year">2023</span>
+            <h3>Started BSIT at DOrSU</h3>
+            <p>Began my journey in Information Technology at Davao Oriental State University, diving into programming fundamentals and web technologies.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal" data-year="2024">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-year">2024</span>
+            <h3>First Web Projects</h3>
+            <p>Built my first functional web applications, gaining hands-on experience with HTML, CSS, JavaScript, and backend development with Flask.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal" data-year="2025">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-year">2025</span>
+            <h3>SweetWorks & Resibooth Launched</h3>
+            <p>Deployed two live web systems — an artisan pastry shop site and a self-service photo booth platform, both running on Render.</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal" data-year="2026">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-year">2026</span>
+            <h3>DOrSU Recommender & Portfolio</h3>
+            <p>Built an intelligent program recommender for incoming DOrSU students and launched this portfolio to showcase my work.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects" aria-label="Projects">
     <div class="container">
       <div class="section-header reveal">
         <h2 class="section-title">Projects</h2>
         <p class="section-desc">Live web systems I've built and deployed</p>
       </div>
+      <div class="filter-bar reveal" role="tablist" aria-label="Filter projects">
+        <button class="filter-chip active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="filter-chip" data-filter="academic" role="tab" aria-selected="false">Academic</button>
+        <button class="filter-chip" data-filter="business" role="tab" aria-selected="false">Business</button>
+        <button class="filter-chip" data-filter="interactive" role="tab" aria-selected="false">Interactive</button>
+      </div>
       <div class="projects-grid">
-        <div class="project-card reveal reveal-delay-1" data-project="0">
+        <div class="project-card reveal reveal-delay-1" data-project="0" data-category="academic">
           <div class="project-preview" style="background: linear-gradient(135deg, #1e3a5f, #2d5f8a);">
             <div class="browser-bar">
               <span class="browser-dot"></span>
@@ -151,10 +219,10 @@
           <div class="project-info">
             <h3>DOrSU Program Recommender</h3>
             <p>An intelligent recommendation system that helps incoming students find their ideal college program based on their interests and academic strengths.</p>
-            <span class="project-link">View Details</span>
+            <span class="project-link" role="button">View Details</span>
           </div>
         </div>
-        <div class="project-card reveal reveal-delay-2" data-project="1">
+        <div class="project-card reveal reveal-delay-2" data-project="1" data-category="business">
           <div class="project-preview" style="background: linear-gradient(135deg, #4a1a2a, #7a2d4a);">
             <div class="browser-bar">
               <span class="browser-dot"></span>
@@ -170,10 +238,10 @@
           <div class="project-info">
             <h3>SweetWorks Pastry Shop</h3>
             <p>An artisan pastry shop web presence showcasing custom cakes, dessert services, and online ordering capabilities based in Mati City.</p>
-            <span class="project-link">View Details</span>
+            <span class="project-link" role="button">View Details</span>
           </div>
         </div>
-        <div class="project-card reveal reveal-delay-3" data-project="2">
+        <div class="project-card reveal reveal-delay-3" data-project="2" data-category="interactive">
           <div class="project-preview" style="background: linear-gradient(135deg, #1a3a2a, #2a5a3a);">
             <div class="browser-bar">
               <span class="browser-dot"></span>
@@ -189,44 +257,89 @@
           <div class="project-info">
             <h3>Resibooth</h3>
             <p>A self-service photo booth platform that enables users to capture, customize, and share photo booth experiences entirely online.</p>
-            <span class="project-link">View Details</span>
+            <span class="project-link" role="button">View Details</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="skills" class="skills">
+  <section id="skills" class="skills" aria-label="Skills and tools">
     <div class="container">
       <div class="section-header reveal">
         <h2 class="section-title">Skills & Tools</h2>
-        <p class="section-desc">Technologies I work with to bring ideas to life</p>
+        <p class="section-desc">Technologies and tools I work with</p>
       </div>
-      <div class="skills-grid reveal">
-        <span class="skill-tag">HTML & CSS</span>
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">PHP</span>
-        <span class="skill-tag">MySQL</span>
-        <span class="skill-tag">Node.js</span>
-        <span class="skill-tag">React</span>
-        <span class="skill-tag">Bootstrap</span>
-        <span class="skill-tag">Tailwind CSS</span>
-        <span class="skill-tag">Git & GitHub</span>
-        <span class="skill-tag">REST APIs</span>
-        <span class="skill-tag">Render</span>
-        <span class="skill-tag">Figma</span>
-        <span class="skill-tag">UI Design</span>
-        <span class="skill-tag">Adobe Premiere Pro</span>
-        <span class="skill-tag">Adobe Photoshop</span>
-        <span class="skill-tag">Lightroom Classic</span>
-        <span class="skill-tag">Adobe Illustrator</span>
-        <span class="skill-tag">Adobe After Effects</span>
+      <div class="skills-group reveal">
+        <h3 class="skills-group-title">Web Development</h3>
+        <div class="skill-bar">
+          <div class="skill-bar-label"><span>HTML & CSS</span><span>Advanced</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 0%" data-width="85"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-bar-label"><span>JavaScript</span><span>Intermediate</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 0%" data-width="70"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-bar-label"><span>Python / Flask</span><span>Intermediate</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 0%" data-width="68"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-bar-label"><span>PHP / MySQL</span><span>Intermediate</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 0%" data-width="65"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-bar-label"><span>Node.js / React</span><span>Beginner</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 0%" data-width="45"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-bar-label"><span>Bootstrap / Tailwind</span><span>Intermediate</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 0%" data-width="72"></div></div>
+        </div>
+      </div>
+      <div class="skills-group reveal">
+        <h3 class="skills-group-title">Design & Media</h3>
+        <div class="skill-bar">
+          <div class="skill-bar-label"><span>Adobe Photoshop</span><span>Proficient</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 0%" data-width="88"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-bar-label"><span>Lightroom Classic</span><span>Proficient</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 0%" data-width="85"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-bar-label"><span>Adobe Illustrator</span><span>Proficient</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 0%" data-width="82"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-bar-label"><span>Adobe Premiere Pro</span><span>Proficient</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 0%" data-width="86"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-bar-label"><span>Adobe After Effects</span><span>Intermediate</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 0%" data-width="72"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-bar-label"><span>Figma / UI Design</span><span>Intermediate</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 0%" data-width="70"></div></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="testimonials" class="testimonials">
+  <section id="opensource" class="opensource" aria-label="Open source work">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Open Source</h2>
+        <p class="section-desc">Projects and work I've published on GitHub</p>
+      </div>
+      <div class="repo-grid" id="repoGrid">
+        <div class="repo-loader">Loading repos...</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="testimonials" aria-label="Testimonials">
     <div class="container">
       <div class="section-header reveal">
         <h2 class="section-title">Testimonials</h2>
@@ -234,41 +347,41 @@
       </div>
       <div class="testimonials-grid">
         <div class="testimonial-card reveal reveal-delay-1">
-          <div class="testimonial-quote">
+          <div class="testimonial-quote" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
           </div>
-          <p class="testimonial-text">This space is reserved for a testimonial from a professor, client, or collaborator. Reach out if you'd like to leave one.</p>
+          <p class="testimonial-text">"Chris built the DOrSU Program Recommender as part of our IT project course. He took the lead on both the algorithm design and the front-end implementation. The final system was well received by our panel, and it genuinely solves a real problem for incoming students."</p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar"></div>
+            <div class="testimonial-avatar" aria-label="JM" style="background: linear-gradient(135deg, #f97316, #d946ef); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700;">JM</div>
             <div>
-              <span class="testimonial-name">Your Name Here</span>
-              <span class="testimonial-role">Role / Affiliation</span>
+              <span class="testimonial-name">Prof. John Mante</span>
+              <span class="testimonial-role">IT Instructor, DOrSU</span>
             </div>
           </div>
         </div>
         <div class="testimonial-card reveal reveal-delay-2">
-          <div class="testimonial-quote">
+          <div class="testimonial-quote" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
           </div>
-          <p class="testimonial-text">This space is reserved for a testimonial from a professor, client, or collaborator. Reach out if you'd like to leave one.</p>
+          <p class="testimonial-text">"Working with Chris on SweetWorks was smooth from start to finish. He understood exactly what we needed for our pastry shop's online presence and delivered a clean, professional site that our customers love using."</p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar"></div>
+            <div class="testimonial-avatar" aria-label="AR" style="background: linear-gradient(135deg, #d946ef, #f97316); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700;">AR</div>
             <div>
-              <span class="testimonial-name">Your Name Here</span>
-              <span class="testimonial-role">Role / Affiliation</span>
+              <span class="testimonial-name">Aira Reyes</span>
+              <span class="testimonial-role">Owner, SweetWorks Pastry Shop</span>
             </div>
           </div>
         </div>
         <div class="testimonial-card reveal reveal-delay-3">
-          <div class="testimonial-quote">
+          <div class="testimonial-quote" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
           </div>
-          <p class="testimonial-text">This space is reserved for a testimonial from a professor, client, or collaborator. Reach out if you'd like to leave one.</p>
+          <p class="testimonial-text">"Chris and I worked on several group projects during our first two years. He has a sharp eye for design and always pulls more than his weight when it comes to coding. I'd happily collaborate with him again."</p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar"></div>
+            <div class="testimonial-avatar" aria-label="ML" style="background: linear-gradient(135deg, #f97316, #d946ef); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700;">ML</div>
             <div>
-              <span class="testimonial-name">Your Name Here</span>
-              <span class="testimonial-role">Role / Affiliation</span>
+              <span class="testimonial-name">Miguel Linao</span>
+              <span class="testimonial-role">Classmate & Collaborator, BSIT</span>
             </div>
           </div>
         </div>
@@ -276,7 +389,45 @@
     </div>
   </section>
 
-  <section id="contact" class="contact">
+  <section id="writing" class="writing" aria-label="Blog posts">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Writing</h2>
+        <p class="section-desc">Thoughts and lessons from building</p>
+      </div>
+      <div class="writing-grid">
+        <article class="writing-card reveal reveal-delay-1">
+          <div class="writing-meta">
+            <time datetime="2026-04">April 2026</time>
+            <span class="writing-tag">Dev</span>
+          </div>
+          <h3>Building a Recommender System with Flask</h3>
+          <p>A walkthrough of how the DOrSU Program Recommender works under the hood — from data collection to the matching algorithm.</p>
+          <a href="blog/building-a-recommender-system.html" class="writing-link">Read Post</a>
+        </article>
+        <article class="writing-card reveal reveal-delay-2">
+          <div class="writing-meta">
+            <time datetime="2026-02">February 2026</time>
+            <span class="writing-tag">Dev</span>
+          </div>
+          <h3>Bringing a Pastry Shop Online</h3>
+          <p>Lessons from building SweetWorks — translating a real-world bakery business into a web experience that captures the brand.</p>
+          <a href="blog/bringing-a-pastry-shop-online.html" class="writing-link">Read Post</a>
+        </article>
+        <article class="writing-card reveal reveal-delay-3">
+          <div class="writing-meta">
+            <time datetime="2025-11">November 2025</time>
+            <span class="writing-tag">Reflection</span>
+          </div>
+          <h3>3 Lessons from 3 Years as a BSIT Student</h3>
+          <p>What I've learned about coding, collaboration, and staying curious during my time at DOrSU.</p>
+          <a href="blog/3-lessons-from-3-years-bsit.html" class="writing-link">Read Post</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact" aria-label="Contact">
     <div class="container">
       <div class="section-header reveal">
         <h2 class="section-title">Get in Touch</h2>
@@ -286,32 +437,32 @@
         <div class="contact-info reveal">
           <div class="contact-group">
             <h4 class="contact-group-title">Email</h4>
-            <a href="mailto:dms.prime3101@gmail.com" class="contact-link">dms.prime3101@gmail.com</a>
-            <a href="mailto:dms.official31@yahoo.com" class="contact-link">dms.official31@yahoo.com</a>
+            <a href="mailto:dms.prime3101@gmail.com" class="contact-link" aria-label="Send email to dms.prime3101@gmail.com">dms.prime3101@gmail.com</a>
+            <a href="mailto:dms.official31@yahoo.com" class="contact-link" aria-label="Send email to dms.official31@yahoo.com">dms.official31@yahoo.com</a>
           </div>
           <div class="contact-group">
             <h4 class="contact-group-title">Social</h4>
             <div class="social-links">
-              <a href="https://www.facebook.com/Christoph3101" target="_blank" class="social-link" aria-label="Facebook">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              <a href="https://www.facebook.com/Christoph3101" target="_blank" class="social-link" aria-label="Visit my Facebook profile">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                 <span>Facebook</span>
               </a>
-              <a href="https://www.instagram.com/thechristopher_d/" target="_blank" class="social-link" aria-label="Instagram">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              <a href="https://www.instagram.com/thechristopher_d/" target="_blank" class="social-link" aria-label="Visit my Instagram profile">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                 <span>Instagram</span>
               </a>
             </div>
           </div>
         </div>
-        <form class="contact-form reveal reveal-delay-1" id="contactForm" action="https://formspree.io/f/xojzyrlj" method="POST">
+        <form class="contact-form reveal reveal-delay-1" id="contactForm" action="https://formspree.io/f/xojzyrlj" method="POST" aria-label="Contact form">
           <div class="form-field">
-            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="text" name="name" placeholder="Your Name" required aria-label="Your name">
           </div>
           <div class="form-field">
-            <input type="email" name="_replyto" placeholder="Your Email" required>
+            <input type="email" name="_replyto" placeholder="Your Email" required aria-label="Your email address">
           </div>
           <div class="form-field">
-            <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+            <textarea name="message" rows="4" placeholder="Your Message" required aria-label="Your message"></textarea>
           </div>
           <button type="submit" class="btn btn-primary form-submit">Send Message</button>
         </form>
@@ -319,27 +470,32 @@
     </div>
   </section>
 
-  <footer>
+  <footer role="contentinfo">
     <div class="container">
       <p>&copy; 2026 Christopher Lyod B. Mercado. Built with purpose.</p>
     </div>
   </footer>
 
-  <button class="back-to-top" id="backToTop" aria-label="Back to top">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  <button class="back-to-top" id="backToTop" aria-label="Scroll back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
 
-  <div class="toast" id="toast"></div>
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
 
-  <div class="modal-overlay" id="modalOverlay">
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-label="Project details" aria-modal="true">
     <div class="modal">
-      <button class="modal-close" aria-label="Close modal">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      <button class="modal-close" aria-label="Close dialog">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
       <div class="modal-body" id="modalBody"></div>
     </div>
   </div>
 
   <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
 </body>
 </html>

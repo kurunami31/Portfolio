@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bringing a Pastry Shop Online | Christopher Lyod B. Mercado</title>
+  <meta name="description" content="Lessons from building SweetWorks — translating a real-world bakery business into a web experience that captures the brand.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #070707; --bg-card: #0c0c0c; --text-primary: #f5f5f5; --text-secondary: #a0a0a0; --text-muted: #666; --border: rgba(255,255,255,0.06); --border-strong: rgba(255,255,255,0.12); --accent-start: #f97316; --accent-end: #d946ef; --selection: rgba(249,115,22,0.3); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+    ::selection { background: var(--selection); color: #fff; }
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    nav { padding: 24px 0; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.3s; }
+    nav a:hover { color: var(--text-primary); }
+    article { padding-bottom: 80px; }
+    .post-meta { display: flex; gap: 12px; align-items: center; margin-bottom: 24px; }
+    .post-meta time { font-size: 13px; color: var(--text-muted); }
+    .post-tag { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 10px; border-radius: 4px; background: rgba(249,115,22,0.1); color: var(--accent-start); }
+    h1 { font-size: clamp(28px, 4vw, 40px); font-weight: 800; letter-spacing: -1px; line-height: 1.2; margin-bottom: 32px; }
+    h2 { font-size: 22px; font-weight: 700; margin-top: 40px; margin-bottom: 16px; color: var(--text-primary); }
+    p { font-size: 16px; color: var(--text-secondary); margin-bottom: 20px; }
+    ul { color: var(--text-secondary); font-size: 16px; margin-bottom: 20px; padding-left: 24px; }
+    li { margin-bottom: 8px; }
+    hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+    footer { padding: 32px 0; border-top: 1px solid var(--border); text-align: center; }
+    footer p { font-size: 12px; color: var(--text-muted); }
+    @media (max-width: 480px) { nav { margin-bottom: 32px; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="../">&larr; Back to Portfolio</a>
+    </div>
+  </nav>
+  <article class="container">
+    <div class="post-meta">
+      <time datetime="2026-02">February 2026</time>
+      <span class="post-tag">Dev</span>
+    </div>
+    <h1>Bringing a Pastry Shop Online</h1>
+    <p>SweetWorks is an artisan pastry shop based in Mati City, Davao Oriental. When the owner approached me about building a website, the goal was clear — create an online presence that captures the warmth and craftsmanship of their brand.</p>
+
+    <h2>Understanding the brand</h2>
+    <p>Before writing a single line of code, I spent time understanding what makes SweetWorks unique. It's not just a bakery — it's a place where custom cakes are designed for weddings, birthdays, and special occasions. The site had to communicate that personal touch.</p>
+
+    <h2>Design decisions</h2>
+    <p>I went with a warm, muted color palette inspired by their actual店面 interior. The layout prioritizes their product catalog and cake gallery. Each product page includes clear calls to action for inquiries, since online ordering for custom cakes requires consultation.</p>
+
+    <h2>Technical approach</h2>
+    <p>Flask handles the backend with a simple product catalog structure. Bootstrap made it straightforward to build a responsive layout that looks great on mobile — important because many customers browse on their phones.</p>
+
+    <h2>Key takeaway</h2>
+    <p>Building for a real client taught me that communication is as important as code. Understanding the business, the customers, and the brand identity made the technical decisions much easier. The site went live on Render and the owner has received positive feedback from customers.</p>
+    <hr>
+    <p><a href="../">&larr; Back to Portfolio</a></p>
+  </article>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Christopher Lyod B. Mercado</p>
+    </div>
+  </footer>
+</body>
+</html>

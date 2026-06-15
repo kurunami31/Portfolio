@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building a Recommender System with Flask | Christopher Lyod B. Mercado</title>
+  <meta name="description" content="A walkthrough of how the DOrSU Program Recommender works under the hood — from data collection to the matching algorithm.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #070707; --bg-card: #0c0c0c; --text-primary: #f5f5f5; --text-secondary: #a0a0a0; --text-muted: #666; --border: rgba(255,255,255,0.06); --border-strong: rgba(255,255,255,0.12); --accent-start: #f97316; --accent-end: #d946ef; --selection: rgba(249,115,22,0.3); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+    ::selection { background: var(--selection); color: #fff; }
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    nav { padding: 24px 0; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.3s; }
+    nav a:hover { color: var(--text-primary); }
+    article { padding-bottom: 80px; }
+    .post-meta { display: flex; gap: 12px; align-items: center; margin-bottom: 24px; }
+    .post-meta time { font-size: 13px; color: var(--text-muted); }
+    .post-tag { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 10px; border-radius: 4px; background: rgba(249,115,22,0.1); color: var(--accent-start); }
+    h1 { font-size: clamp(28px, 4vw, 40px); font-weight: 800; letter-spacing: -1px; line-height: 1.2; margin-bottom: 32px; }
+    h2 { font-size: 22px; font-weight: 700; margin-top: 40px; margin-bottom: 16px; color: var(--text-primary); }
+    p { font-size: 16px; color: var(--text-secondary); margin-bottom: 20px; }
+    code { font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 14px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); padding: 2px 8px; border-radius: 4px; color: var(--accent-start); }
+    pre { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; overflow-x: auto; margin-bottom: 24px; }
+    pre code { background: none; border: none; padding: 0; color: var(--text-primary); }
+    ul, ol { color: var(--text-secondary); font-size: 16px; margin-bottom: 20px; padding-left: 24px; }
+    li { margin-bottom: 8px; }
+    hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+    footer { padding: 32px 0; border-top: 1px solid var(--border); text-align: center; }
+    footer p { font-size: 12px; color: var(--text-muted); }
+    @media (max-width: 480px) { nav { margin-bottom: 32px; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="../">&larr; Back to Portfolio</a>
+    </div>
+  </nav>
+  <article class="container">
+    <div class="post-meta">
+      <time datetime="2026-04">April 2026</time>
+      <span class="post-tag">Dev</span>
+    </div>
+    <h1>Building a Recommender System with Flask</h1>
+    <p>The DOrSU Program Recommender was born from a simple observation: incoming college students often struggle to choose which program fits them best. I wanted to build something that could guide that decision with data rather than guesswork.</p>
+
+    <h2>How it works</h2>
+    <p>The system uses a questionnaire-based approach. Students answer questions about their interests, academic strengths, and preferences. Each answer maps to weighted criteria across DOrSU's program offerings.</p>
+    <p>Here's a simplified version of the core matching logic:</p>
+    <pre><code>def compute_match_scores(student_responses):
+    scores = {}
+    for program in programs:
+        score = 0
+        for criteria, weight in program.criteria.items():
+            if student_responses.get(criteria) == weight.target:
+                score += weight.value
+        scores[program.name] = score
+    return sorted(scores, key=scores.get, reverse=True)</code></pre>
+
+    <h2>Tech stack</h2>
+    <p>Built with Flask on the backend, the app handles form submissions, computes match scores server-side, and renders results through Jinja2 templates. The front-end uses vanilla JavaScript for interactivity and a clean, responsive layout.</p>
+
+    <h2>What I learned</h2>
+    <p>This project taught me how to think about data-driven decision-making from a user's perspective. The hardest part wasn't the algorithm — it was designing questions that are clear, unbiased, and actually helpful. I also got more comfortable deploying Flask apps on Render and debugging in production.</p>
+    <hr>
+    <p><a href="../">&larr; Back to Portfolio</a></p>
+  </article>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Christopher Lyod B. Mercado</p>
+    </div>
+  </footer>
+</body>
+</html>
