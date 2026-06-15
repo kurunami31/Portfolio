@@ -268,11 +268,12 @@ function initSkillDonuts() {
   document.body.appendChild(defsSvg);
 
   var circumference = 69.115;
-  var fills = document.querySelectorAll('.skill-bar-fill');
+  var tracks = document.querySelectorAll('.skill-bar-track');
 
-  fills.forEach(function (fill) {
-    var bar = fill.closest('.skill-bar');
-    if (!bar) return;
+  tracks.forEach(function (track) {
+    var fill = track.querySelector('.skill-bar-fill');
+    var bar = track.closest('.skill-bar');
+    if (!fill || !bar) return;
 
     var label = bar.querySelector('.skill-bar-label');
     var percent = parseInt(fill.getAttribute('data-width')) || 0;
@@ -316,7 +317,7 @@ function initSkillDonuts() {
         }
       });
     }, { threshold: 0.1 });
-    obs.observe(fill);
+    obs.observe(track);
   });
 }
 
