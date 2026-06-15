@@ -5,25 +5,143 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CV — Christopher Lyod B. Mercado</title>
   <meta name="robots" content="noindex">
+  <meta name="description" content="Curriculum Vitae of Christopher Lyod B. Mercado — 3rd Year BSIT student at Davao Oriental State University and web developer.">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    :root { --bg: #070707; --bg-card: #0c0c0c; --text-primary: #f5f5f5; --text-secondary: #a0a0a0; --text-muted: #666; --text-dim: #444; --border: rgba(255,255,255,0.06); --border-strong: rgba(255,255,255,0.12); --accent-start: #f97316; --accent-end: #d946ef; --selection: rgba(249,115,22,0.3); }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: #070707; color: #f5f5f5; display: flex; align-items: center; justify-content: center; min-height: 100vh; -webkit-font-smoothing: antialiased; }
-    .container { text-align: center; padding: 24px; }
-    h1 { font-size: clamp(28px, 5vw, 48px); font-weight: 800; margin-bottom: 16px; }
-    p { font-size: 15px; color: #666; margin-bottom: 32px; line-height: 1.7; }
-    .btn { display: inline-flex; padding: 14px 34px; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none; background: linear-gradient(135deg, #f97316, #d946ef); color: #fff; transition: all 0.3s ease; }
-    .btn:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(249, 115, 22, 0.25); }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    ::selection { background: var(--selection); color: #fff; }
+    .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+    .btn-row { display: flex; gap: 12px; justify-content: center; padding: 32px 0; border-bottom: 1px solid var(--border); margin-bottom: 48px; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; font-family: 'Inter', sans-serif; cursor: pointer; border: none; }
+    .btn-primary { background: linear-gradient(135deg, var(--accent-start), var(--accent-end)); color: #fff; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(249,115,22,0.25); }
+    .btn-ghost { background: transparent; color: var(--text-secondary); border: 1px solid var(--border-strong); }
+    .btn-ghost:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.25); }
+    .cv-header { text-align: center; margin-bottom: 48px; }
+    .cv-header h1 { font-size: clamp(28px, 4vw, 36px); font-weight: 800; letter-spacing: -1px; margin-bottom: 6px; }
+    .cv-header .subtitle { font-size: 15px; color: var(--text-secondary); margin-bottom: 4px; }
+    .cv-header .location { font-size: 13px; color: var(--text-muted); }
+    .cv-section { margin-bottom: 40px; }
+    .cv-section-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-dim); margin-bottom: 20px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .cv-item { margin-bottom: 24px; }
+    .cv-item-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
+    .cv-item-title { font-size: 16px; font-weight: 700; color: var(--text-primary); }
+    .cv-item-sub { font-size: 14px; color: var(--text-secondary); }
+    .cv-item-date { font-size: 12px; color: var(--text-dim); white-space: nowrap; }
+    .cv-item-desc { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-top: 6px; }
+    .cv-item-desc ul { list-style: none; margin-top: 6px; }
+    .cv-item-desc li { padding: 4px 0; padding-left: 16px; position: relative; }
+    .cv-item-desc li::before { content: ''; position: absolute; left: 0; top: 12px; width: 4px; height: 4px; border-radius: 50%; background: var(--accent-start); }
+    .skill-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 32px; }
+    .skill-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+    .skill-name { color: var(--text-secondary); }
+    .skill-level { color: var(--text-dim); font-size: 12px; }
+    .contact-row { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; font-size: 14px; color: var(--text-muted); }
+    .contact-row a { color: var(--accent-start); text-decoration: none; }
+    .contact-row a:hover { text-decoration: underline; }
+    @media print { body { background: #fff !important; color: #000 !important; } .btn-row { display: none; } :root { --bg: #fff; --bg-card: #fff; --text-primary: #000; --text-secondary: #333; --text-muted: #666; --text-dim: #999; --border: #ddd; --border-strong: #bbb; --accent-start: #f97316; } .cv-section { page-break-inside: avoid; } }
+    @media (max-width: 600px) { .skill-grid { grid-template-columns: 1fr; } .cv-item-header { flex-direction: column; } }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Coming Soon</h1>
-    <p>My CV is being prepared. Check back later or reach out directly.</p>
-    <a href="../" class="btn">Back to Portfolio</a>
+  <div class="btn-row">
+    <button class="btn btn-primary" onclick="window.print()">Download PDF</button>
+    <a href="../" class="btn btn-ghost">Back to Portfolio</a>
+  </div>
+
+  <div class="container" style="padding-bottom:80px;">
+    <div class="cv-header">
+      <h1>Christopher Lyod B. Mercado</h1>
+      <p class="subtitle">Web Developer &bull; BSIT Student</p>
+      <p class="location">Davao Oriental State University &mdash; Mati City, Philippines</p>
+    </div>
+
+    <div class="contact-row">
+      <a href="mailto:dms.prime3101@gmail.com">dms.prime3101@gmail.com</a>
+      <span>github.com/kurunami31</span>
+    </div>
+
+    <div class="cv-section">
+      <h2 class="cv-section-title">Profile</h2>
+      <p style="font-size:14px;color:var(--text-muted);line-height:1.8;">
+        3rd Year BSIT student at Davao Oriental State University with a focus on web development.
+        Experienced in building full-stack web applications using Flask, JavaScript, and modern front-end tools.
+        Passionate about creating digital experiences that solve real problems.
+      </p>
+    </div>
+
+    <div class="cv-section">
+      <h2 class="cv-section-title">Projects</h2>
+
+      <div class="cv-item">
+        <div class="cv-item-header">
+          <span class="cv-item-title">DOrSU Program Recommender</span>
+          <span class="cv-item-date">2026</span>
+        </div>
+        <div class="cv-item-sub">Python, Flask, JavaScript, Render</div>
+        <div class="cv-item-desc">
+          An intelligent recommendation system that helps incoming students find their ideal college program based on interests and academic strengths.
+          Built with Flask and deployed on Render.
+        </div>
+      </div>
+
+      <div class="cv-item">
+        <div class="cv-item-header">
+          <span class="cv-item-title">SweetWorks Pastry Shop</span>
+          <span class="cv-item-date">2026</span>
+        </div>
+        <div class="cv-item-sub">Python, Flask, Bootstrap, JavaScript, Render</div>
+        <div class="cv-item-desc">
+          A full web presence for an artisan pastry shop in Mati City. Features product catalog, custom cake inquiries, and responsive design.
+        </div>
+      </div>
+
+      <div class="cv-item">
+        <div class="cv-item-header">
+          <span class="cv-item-title">Resibooth</span>
+          <span class="cv-item-date">2025</span>
+        </div>
+        <div class="cv-item-sub">Python, Flask, JavaScript, HTML &amp; CSS, Render</div>
+        <div class="cv-item-desc">
+          A self-service photo booth platform that works entirely in the browser. Users can capture, customize, and share photos without downloads.
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <h2 class="cv-section-title">Technical Skills</h2>
+      <div class="skill-grid">
+        <div class="skill-row"><span class="skill-name">HTML &amp; CSS</span><span class="skill-level">Advanced</span></div>
+        <div class="skill-row"><span class="skill-name">JavaScript</span><span class="skill-level">Intermediate</span></div>
+        <div class="skill-row"><span class="skill-name">Python / Flask</span><span class="skill-level">Intermediate</span></div>
+        <div class="skill-row"><span class="skill-name">PHP / MySQL</span><span class="skill-level">Intermediate</span></div>
+        <div class="skill-row"><span class="skill-name">Bootstrap / Tailwind</span><span class="skill-level">Intermediate</span></div>
+        <div class="skill-row"><span class="skill-name">Adobe Photoshop</span><span class="skill-level">Proficient</span></div>
+        <div class="skill-row"><span class="skill-name">Lightroom Classic</span><span class="skill-level">Proficient</span></div>
+        <div class="skill-row"><span class="skill-name">Adobe Illustrator</span><span class="skill-level">Proficient</span></div>
+        <div class="skill-row"><span class="skill-name">Premiere Pro</span><span class="skill-level">Proficient</span></div>
+        <div class="skill-row"><span class="skill-name">Figma / UI Design</span><span class="skill-level">Intermediate</span></div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <h2 class="cv-section-title">Education</h2>
+      <div class="cv-item">
+        <div class="cv-item-header">
+          <span class="cv-item-title">Bachelor of Science in Information Technology</span>
+          <span class="cv-item-date">2023 &ndash; Present</span>
+        </div>
+        <div class="cv-item-sub">Davao Oriental State University &mdash; Mati City</div>
+        <div class="cv-item-desc">
+          Currently in 3rd year. Coursework includes web development, database management, systems analysis, and programming.
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
