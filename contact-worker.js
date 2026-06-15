@@ -28,10 +28,8 @@ async function handleRequest(request) {
       });
     }
 
-    // Forward via email API (replace with SendGrid/Mailgun/etc.)
     var emailBody = 'Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message;
 
-    // Example: SendGrid v3 API
     if (EMAIL_API_KEY && EMAIL_TO) {
       await fetch('https://api.sendgrid.com/v3/mail/send', {
         method: 'POST',
@@ -41,7 +39,7 @@ async function handleRequest(request) {
         },
         body: JSON.stringify({
           personalizations: [{ to: [{ email: EMAIL_TO }] }],
-          from: { email: 'noreply@your-domain.com', name: 'Portfolio Contact' },
+          from: { email: EMAIL_TO, name: 'Portfolio Contact' },
           subject: 'Portfolio message from ' + name,
           content: [{ type: 'text/plain', value: emailBody }]
         })
