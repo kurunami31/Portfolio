@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div class="loader" id="loader"><div class="loader-spinner"></div></div>
+  <nav class="navbar" id="navbar">
+    <button class="theme-toggle" id="themeToggle">Toggle</button>
+    <button class="menu-toggle" id="menuToggle">Menu</button>
+  </nav>
+  <div class="mobile-overlay" id="mobileOverlay">
+    <div class="mobile-nav-links">
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+  <div class="back-to-top" id="backToTop"></div>
+  <div class="toast" id="toast"></div>
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal"><button class="modal-close">X</button><div class="modal-body" id="modalBody"></div></div>
+  </div>
+  <p class="hero-desc" id="heroDesc" data-text="Hello"></p>
+  <form class="contact-form" id="contactForm"></form>
+  <button id="printCv">CV</button>
+
+  <section id="skills" class="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Skills</h2>
+      </div>
+      <div class="skills-group reveal">
+        <h3>Web Development</h3>
+        <div class="skill-bar">
+          <div class="skill-bar-label"><span>HTML & CSS</span><span>Advanced</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 0%" data-width="85"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-bar-label"><span>JavaScript</span><span>Intermediate</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 0%" data-width="70"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -228,6 +228,11 @@ function animateSkillBars(container) {
     if (fill._animated) return;
     fill._animated = true;
     fill.style.width = percent + '%';
+    var bar = fill.closest('.skill-bar');
+    if (bar) {
+      var badge = bar.querySelector('.skill-percent');
+      if (badge) badge.classList.add('show');
+    }
   });
 }
 
@@ -262,4 +267,20 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
   });
 });
 
+function initSkillPercentages() {
+  var fills = document.querySelectorAll('.skill-bar-fill');
+  fills.forEach(function (fill) {
+    var bar = fill.closest('.skill-bar');
+    if (!bar) return;
+    var label = bar.querySelector('.skill-bar-label');
+    var nameSpan = label.querySelector('span:first-child');
+    var pct = parseInt(fill.getAttribute('data-width')) || 0;
 
+    var badge = document.createElement('span');
+    badge.className = 'skill-percent';
+    badge.textContent = pct + '%';
+    label.insertBefore(badge, nameSpan);
+  });
+}
+
+initSkillPercentages();
