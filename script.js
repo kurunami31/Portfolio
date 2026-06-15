@@ -308,16 +308,8 @@ function initSkillDonuts() {
     label.insertBefore(wrapper, nameSpan);
     wrapper.appendChild(nameSpan);
 
-    var obs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          fill.style.width = percent + '%';
-          fg.setAttribute('stroke-dashoffset', (circumference - circumference * percent / 100).toString());
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    obs.observe(track);
+    fill.style.width = percent + '%';
+    fg.setAttribute('stroke-dashoffset', (circumference - circumference * percent / 100).toString());
   });
 }
 
