@@ -207,11 +207,13 @@ a:focus-visible, button:focus-visible, .project-card:focus-visible {
   transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
   color: var(--text-primary);
 }
 
-.nav-links a:hover::after {
+.nav-links a:hover::after,
+.nav-links a.active::after {
   width: 100%;
 }
 
@@ -1564,7 +1566,25 @@ footer p {
     padding: 32px 24px;
   }
 
-  .back-to-top {
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  padding: 12px 24px;
+  background: var(--accent-start);
+  color: #fff;
+  z-index: 10000;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+.back-to-top {
     bottom: 20px;
     right: 20px;
     width: 40px;
