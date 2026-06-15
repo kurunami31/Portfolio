@@ -221,6 +221,25 @@ if (contactForm) {
   });
 }
 
+var circumference = 69.115;
+
+function animateSkillBars(container) {
+  var fills = container.querySelectorAll('.skill-bar-fill');
+  fills.forEach(function (fill) {
+    var percent = parseInt(fill.getAttribute('data-width')) || 0;
+    if (fill._animated) return;
+    fill._animated = true;
+    fill.style.width = percent + '%';
+    var wrapper = fill.closest('.skill-bar');
+    if (wrapper) {
+      var fg = wrapper.querySelector('.skill-donut-fill');
+      if (fg) {
+        fg.setAttribute('stroke-dashoffset', (circumference - circumference * percent / 100).toString());
+      }
+    }
+  });
+}
+
 var revealElements = document.querySelectorAll('.reveal');
 
 var revealObserver = new IntersectionObserver(
@@ -228,6 +247,7 @@ var revealObserver = new IntersectionObserver(
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
+        animateSkillBars(entry.target);
       }
     });
   },
@@ -267,7 +287,6 @@ function initSkillDonuts() {
   defs.appendChild(gradient); defsSvg.appendChild(defs);
   document.body.appendChild(defsSvg);
 
-  var circumference = 69.115;
   var tracks = document.querySelectorAll('.skill-bar-track');
 
   tracks.forEach(function (track) {
@@ -276,7 +295,6 @@ function initSkillDonuts() {
     if (!fill || !bar) return;
 
     var label = bar.querySelector('.skill-bar-label');
-    var percent = parseInt(fill.getAttribute('data-width')) || 0;
     var nameSpan = label.querySelector('span:first-child');
 
     var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -307,9 +325,6 @@ function initSkillDonuts() {
     wrapper.appendChild(svg);
     label.insertBefore(wrapper, nameSpan);
     wrapper.appendChild(nameSpan);
-
-    fill.style.width = percent + '%';
-    fg.setAttribute('stroke-dashoffset', (circumference - circumference * percent / 100).toString());
   });
 }
 
