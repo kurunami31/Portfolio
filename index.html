@@ -212,7 +212,7 @@
             </div>
             <div class="preview-badge">Live</div>
             <div class="preview-content">
-              <img src="dorsu-logo.webp" alt="DOrSU" class="project-logo">
+              <img src="dorsu-logo.webp" alt="DOrSU" class="project-logo" loading="lazy" width="140" height="100">
             </div>
             <div class="preview-pattern"></div>
           </div>
@@ -231,7 +231,7 @@
             </div>
             <div class="preview-badge">Live</div>
             <div class="preview-content">
-              <img src="SweetWorks(logo).jpg" alt="SweetWorks" class="project-logo logo-circle">
+              <img src="SweetWorks(logo).jpg" alt="SweetWorks" class="project-logo logo-circle" loading="lazy" width="90" height="90">
             </div>
             <div class="preview-pattern"></div>
           </div>
@@ -250,7 +250,7 @@
             </div>
             <div class="preview-badge">Live</div>
             <div class="preview-content">
-              <img src="Resibooth.png" alt="Resibooth" class="project-logo">
+              <img src="Resibooth.png" alt="Resibooth" class="project-logo" loading="lazy" width="140" height="100">
             </div>
             <div class="preview-pattern"></div>
           </div>
@@ -410,7 +410,7 @@
             </div>
           </div>
         </div>
-        <form class="contact-form reveal reveal-delay-1" id="contactForm" action="https://formspree.io/f/xojzyrlj" method="POST" aria-label="Contact form">
+        <form class="contact-form reveal reveal-delay-1" id="contactForm" action="https://formspree.io/f/xojzyrlj" method="POST" aria-label="Contact form" data-worker-url="">
           <div class="form-field">
             <input type="text" name="name" placeholder="Your Name" required aria-label="Your name">
           </div>
@@ -437,6 +437,24 @@
   </button>
 
   <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <div class="shortcuts-overlay" id="shortcutsOverlay" role="dialog" aria-label="Keyboard shortcuts" aria-modal="true">
+    <div class="shortcuts-panel">
+      <h3 class="shortcuts-title">Keyboard Shortcuts</h3>
+      <div class="shortcuts-list">
+        <div class="shortcut-row"><kbd>?</kbd><span>Show / hide shortcuts</span></div>
+        <div class="shortcut-row"><kbd>j</kbd><span>Next section</span></div>
+        <div class="shortcut-row"><kbd>k</kbd><span>Previous section</span></div>
+        <div class="shortcut-row"><kbd>t</kbd><span>Toggle theme</span></div>
+        <div class="shortcut-row"><kbd>1</kbd><span>Scroll to hero</span></div>
+        <div class="shortcut-row"><kbd>2</kbd><span>Scroll to career</span></div>
+        <div class="shortcut-row"><kbd>3</kbd><span>Scroll to projects</span></div>
+        <div class="shortcut-row"><kbd>4</kbd><span>Scroll to writing</span></div>
+        <div class="shortcut-row"><kbd>Esc</kbd><span>Close modal or shortcuts</span></div>
+      </div>
+      <button class="shortcuts-close" aria-label="Close shortcuts">Got it</button>
+    </div>
+  </div>
 
   <div class="modal-overlay" id="modalOverlay" role="dialog" aria-label="Project details" aria-modal="true">
     <div class="modal">

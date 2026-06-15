@@ -1,4 +1,4 @@
-var CACHE = 'portfolio-v3';
+var CACHE = 'portfolio-v4';
 var urls = [
   'index.html',
   'style.css',
@@ -7,6 +7,9 @@ var urls = [
   'christopher.webp',
   'dorsu-logo.webp',
   'favicon.svg',
+  'camera-favicon.svg',
+  'og-image.webp',
+  'sitemap.xml',
   '404.html'
 ];
 

@@ -206,16 +206,41 @@ function showToast(message) {
 }
 
 if (contactForm) {
+  var workerUrl = contactForm.getAttribute('data-worker-url');
+
   contactForm.addEventListener('submit', function (e) {
     var name = this.querySelector('input[name="name"]').value.trim();
     var email = this.querySelector('input[name="_replyto"]').value.trim();
     var message = this.querySelector('textarea[name="message"]').value.trim();
 
-    if (name && email && message) {
-      showToast('Message received -- thanks for reaching out');
-    } else {
+    if (!name || !email || !message) {
       e.preventDefault();
       showToast('Please fill in all fields');
+      return;
+    }
+
+    if (workerUrl) {
+      e.preventDefault();
+      var btn = this.querySelector('.form-submit');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      fetch(workerUrl, {
+        method: 'POST',
+        body: new FormData(this)
+      }).then(function (r) {
+        if (r.ok) {
+          showToast('Message sent -- thanks for reaching out');
+          contactForm.reset();
+        } else {
+          showToast('Something went wrong. Try emailing directly.');
+        }
+      }).catch(function () {
+        showToast('Something went wrong. Try emailing directly.');
+      }).finally(function () {
+        btn.textContent = 'Send Message';
+        btn.disabled = false;
+      });
     }
   });
 }
@@ -332,5 +357,72 @@ var langColors = {
 };
 
 fetchRepos();
+
+var favIcon = document.querySelector('link[rel="icon"]');
+var favicons = ['favicon.svg', 'camera-favicon.svg'];
+var favIndex = 0;
+
+function toggleFavicon() {
+  favIndex = (favIndex + 1) % favicons.length;
+  if (favIcon) favIcon.setAttribute('href', favicons[favIndex]);
+}
+
+document.addEventListener('visibilitychange', function () {
+  if (document.hidden) toggleFavicon();
+});
+
+// -- Keyboard shortcuts --
+
+var shortcutsOverlay = document.getElementById('shortcutsOverlay');
+var sectionIds = ['hero', 'career', 'projects', 'writing'];
+
+document.addEventListener('keydown', function (e) {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+  if (e.key === '?' && !e.shiftKey) return;
+  if (e.key === '?' && e.shiftKey) {
+    e.preventDefault();
+    shortcutsOverlay.classList.toggle('open');
+    return;
+  }
+
+  if (e.key === 'Escape') {
+    if (shortcutsOverlay.classList.contains('open')) {
+      shortcutsOverlay.classList.remove('open');
+      return;
+    }
+  }
+
+  if (e.key === 't') {
+    e.preventDefault();
+    themeToggle.click();
+    return;
+  }
+
+  if (e.key === 'j' || e.key === 'k') {
+    e.preventDefault();
+    var current = -1;
+    var scrollPos = window.scrollY + 200;
+    for (var si = 0; si < sectionIds.length; si++) {
+      var sec = document.getElementById(sectionIds[si]);
+      if (sec && sec.offsetTop <= scrollPos) current = si;
+    }
+    var next = e.key === 'j' ? Math.min(current + 1, sectionIds.length - 1) : Math.max(current - 1, 0);
+    var target = document.getElementById(sectionIds[next]);
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+    return;
+  }
+
+  var num = parseInt(e.key);
+  if (num >= 1 && num <= 4) {
+    e.preventDefault();
+    var sec = document.getElementById(sectionIds[num - 1]);
+    if (sec) sec.scrollIntoView({ behavior: 'smooth' });
+  }
+});
+
+shortcutsOverlay.querySelector('.shortcuts-close').addEventListener('click', function () {
+  shortcutsOverlay.classList.remove('open');
+});
 
 
