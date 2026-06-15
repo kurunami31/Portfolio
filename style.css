@@ -979,6 +979,23 @@ section {
   transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+.skill-donut-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill-donut {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  transform: rotate(-90deg);
+}
+
+.skill-donut-fill {
+  transition: stroke-dashoffset 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
 .opensource {
   background: var(--bg-secondary);
 }

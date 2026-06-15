@@ -250,3 +250,74 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     }
   });
 });
+
+function initSkillDonuts() {
+  var defsSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  defsSvg.style.cssText = 'position:absolute;width:0;height:0;overflow:hidden';
+  var defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+  var gradient = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
+  gradient.id = 'skillGrad';
+  gradient.setAttribute('x1', '0%'); gradient.setAttribute('y1', '0%');
+  gradient.setAttribute('x2', '100%'); gradient.setAttribute('y2', '100%');
+  var stop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+  stop1.setAttribute('offset', '0%'); stop1.setAttribute('stop-color', '#f97316');
+  var stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+  stop2.setAttribute('offset', '100%'); stop2.setAttribute('stop-color', '#d946ef');
+  gradient.appendChild(stop1); gradient.appendChild(stop2);
+  defs.appendChild(gradient); defsSvg.appendChild(defs);
+  document.body.appendChild(defsSvg);
+
+  var circumference = 69.115;
+  var fills = document.querySelectorAll('.skill-bar-fill');
+
+  fills.forEach(function (fill) {
+    var bar = fill.closest('.skill-bar');
+    if (!bar) return;
+
+    var label = bar.querySelector('.skill-bar-label');
+    var percent = parseInt(fill.getAttribute('data-width')) || 0;
+    var nameSpan = label.querySelector('span:first-child');
+
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 28 28');
+    svg.setAttribute('width', '28');
+    svg.setAttribute('height', '28');
+    svg.classList.add('skill-donut');
+
+    var bg = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    bg.setAttribute('cx', '14'); bg.setAttribute('cy', '14');
+    bg.setAttribute('r', '11'); bg.setAttribute('fill', 'none');
+    bg.setAttribute('stroke', 'currentColor'); bg.setAttribute('stroke-width', '3');
+    bg.setAttribute('opacity', '0.1');
+    svg.appendChild(bg);
+
+    var fg = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    fg.setAttribute('cx', '14'); fg.setAttribute('cy', '14');
+    fg.setAttribute('r', '11'); fg.setAttribute('fill', 'none');
+    fg.setAttribute('stroke', 'url(#skillGrad)'); fg.setAttribute('stroke-width', '3');
+    fg.setAttribute('stroke-linecap', 'round');
+    fg.setAttribute('stroke-dasharray', circumference.toString());
+    fg.setAttribute('stroke-dashoffset', circumference.toString());
+    fg.classList.add('skill-donut-fill');
+    svg.appendChild(fg);
+
+    var wrapper = document.createElement('span');
+    wrapper.className = 'skill-donut-wrapper';
+    wrapper.appendChild(svg);
+    label.insertBefore(wrapper, nameSpan);
+    wrapper.appendChild(nameSpan);
+
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          fill.style.width = percent + '%';
+          fg.setAttribute('stroke-dashoffset', (circumference - circumference * percent / 100).toString());
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    obs.observe(fill);
+  });
+}
+
+initSkillDonuts();
