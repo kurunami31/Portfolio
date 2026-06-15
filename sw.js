@@ -1,4 +1,4 @@
-var CACHE = 'portfolio-v2';
+var CACHE = 'portfolio-v3';
 var urls = [
   'index.html',
   'style.css',
@@ -11,6 +11,7 @@ var urls = [
 ];
 
 self.addEventListener('install', function (e) {
+  self.skipWaiting();
   e.waitUntil(
     caches.open(CACHE).then(function (cache) {
       return cache.addAll(urls);
@@ -20,9 +21,17 @@ self.addEventListener('install', function (e) {
 
 self.addEventListener('fetch', function (e) {
   e.respondWith(
-    caches.match(e.request).then(function (r) {
-      return r || fetch(e.request);
-    })
+    fetch(e.request)
+      .then(function (res) {
+        var clone = res.clone();
+        caches.open(CACHE).then(function (cache) {
+          cache.put(e.request, clone);
+        });
+        return res;
+      })
+      .catch(function () {
+        return caches.match(e.request);
+      })
   );
 });
 
