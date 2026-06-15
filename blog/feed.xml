@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Christopher Lyod B. Mercado — Writing</title>
+    <link>https://kurunami31.github.io/Portfolio/</link>
+    <description>Thoughts and lessons from building.</description>
+    <language>en</language>
+    <lastBuildDate>Mon, 15 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://kurunami31.github.io/Portfolio/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Building a Recommender System with Flask</title>
+      <link>https://kurunami31.github.io/Portfolio/blog/building-a-recommender-system.html</link>
+      <description>A walkthrough of how the DOrSU Program Recommender works under the hood — from data collection to the matching algorithm.</description>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://kurunami31.github.io/Portfolio/blog/building-a-recommender-system.html</guid>
+    </item>
+    <item>
+      <title>Bringing a Pastry Shop Online</title>
+      <link>https://kurunami31.github.io/Portfolio/blog/bringing-a-pastry-shop-online.html</link>
+      <description>Lessons from building SweetWorks — translating a real-world bakery business into a web experience that captures the brand.</description>
+      <pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://kurunami31.github.io/Portfolio/blog/bringing-a-pastry-shop-online.html</guid>
+    </item>
+    <item>
+      <title>3 Lessons from 3 Years as a BSIT Student</title>
+      <link>https://kurunami31.github.io/Portfolio/blog/3-lessons-from-3-years-bsit.html</link>
+      <description>What I've learned about coding, collaboration, and staying curious during my time at Davao Oriental State University.</description>
+      <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://kurunami31.github.io/Portfolio/blog/3-lessons-from-3-years-bsit.html</guid>
+    </item>
+  </channel>
+</rss>

@@ -27,7 +27,8 @@ var projects = [
       'Real-time result generation',
       'Mobile-responsive design'
     ],
-    url: 'https://dorsu-recommender.onrender.com/'
+    url: 'https://dorsu-recommender.onrender.com/',
+    caseStudy: 'case-studies/dorsu-recommender.html'
   },
   {
     name: 'SweetWorks Pastry Shop',
@@ -40,7 +41,8 @@ var projects = [
       'Business information and location',
       'Social media integration'
     ],
-    url: 'https://sweetworks.onrender.com/'
+    url: 'https://sweetworks.onrender.com/',
+    caseStudy: 'case-studies/sweetworks.html'
   },
   {
     name: 'Resibooth',
@@ -53,7 +55,8 @@ var projects = [
       'User-friendly interface',
       'Fully browser-based, no downloads needed'
     ],
-    url: 'https://resibooth.onrender.com/'
+    url: 'https://resibooth.onrender.com/',
+    caseStudy: 'case-studies/resibooth.html'
   }
 ];
 
@@ -163,6 +166,8 @@ function openModal(index) {
     '</ul>',
     '<div class="modal-footer">',
     '  <a href="' + project.url + '" target="_blank" class="btn btn-primary">Visit Live</a>',
+    '  <a href="' + project.caseStudy + '" class="btn btn-secondary">Case Study</a>',
+    '  <span class="modal-note">Render free tier &mdash; may take a moment to wake</span>',
     '</div>'
   ].join('');
 
@@ -217,10 +222,11 @@ if (contactForm) {
 
 function animateSkillBars(container) {
   var fills = container.querySelectorAll('.skill-bar-fill');
-  fills.forEach(function (fill) {
+  fills.forEach(function (fill, i) {
     var percent = parseInt(fill.getAttribute('data-width')) || 0;
     if (fill._animated) return;
     fill._animated = true;
+    fill.style.transitionDelay = (i * 80) + 'ms';
     fill.style.width = percent + '%';
   });
 }

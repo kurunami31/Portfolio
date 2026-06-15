@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writing | Christopher Lyod B. Mercado</title>
+  <meta name="description" content="Thoughts and lessons from building — articles on web development, design, and the journey through BSIT at Davao Oriental State University.">
+  <meta property="og:title" content="Writing | Christopher Lyod B. Mercado">
+  <meta property="og:description" content="Thoughts and lessons from building.">
+  <meta property="og:image" content="../og-image.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kurunami31.github.io/Portfolio/blog/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #070707; --bg-card: #0c0c0c; --text-primary: #f5f5f5; --text-secondary: #a0a0a0; --text-muted: #666; --text-dim: #444; --border: rgba(255,255,255,0.06); --border-strong: rgba(255,255,255,0.12); --accent-start: #f97316; --accent-end: #d946ef; --accent-mid: #c026d3; --selection: rgba(249,115,22,0.3); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    ::selection { background: var(--selection); color: #fff; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    nav { padding: 24px 0; border-bottom: 1px solid var(--border); margin-bottom: 48px; display: flex; justify-content: space-between; align-items: center; }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.3s; }
+    nav a:hover { color: var(--text-primary); }
+    .page-title { font-size: clamp(28px, 4vw, 36px); font-weight: 800; letter-spacing: -1px; margin-bottom: 8px; }
+    .page-desc { color: var(--text-muted); font-size: 15px; margin-bottom: 40px; }
+    .search-bar { width: 100%; padding: 12px 18px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-primary); outline: none; margin-bottom: 24px; transition: border-color 0.3s; }
+    .search-bar:focus { border-color: var(--accent-start); }
+    .search-bar::placeholder { color: var(--text-dim); }
+    .filter-row { display: flex; gap: 8px; margin-bottom: 40px; flex-wrap: wrap; }
+    .filter-chip { padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border); background: transparent; color: var(--text-muted); font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.3s ease; font-family: 'Inter', sans-serif; }
+    .filter-chip:hover { border-color: var(--border-strong); color: var(--text-primary); }
+    .filter-chip.active { background: linear-gradient(135deg, var(--accent-start), var(--accent-mid)); color: #fff; border-color: transparent; }
+    .writing-grid { display: grid; gap: 24px; margin-bottom: 80px; }
+    .writing-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; transition: all 0.3s ease; }
+    .writing-card:hover { border-color: rgba(249,115,22,0.1); transform: translateY(-4px); }
+    .writing-card.hidden { display: none; }
+    .writing-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+    .writing-meta time { font-size: 12px; color: var(--text-dim); }
+    .writing-tag { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 10px; border-radius: 4px; background: rgba(192,38,211,0.1); color: var(--accent-mid); }
+    .reading-time { font-size: 11px; color: var(--text-muted); font-style: italic; }
+    .writing-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: var(--text-primary); line-height: 1.35; }
+    .writing-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
+    .writing-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--accent-start); text-decoration: none; transition: gap 0.3s ease; }
+    .writing-link::after { content: '\2192'; font-size: 16px; transition: transform 0.3s ease; }
+    .writing-link:hover { gap: 12px; }
+    .no-results { text-align: center; padding: 60px 20px; color: var(--text-muted); font-size: 14px; display: none; }
+    footer { padding: 32px 0; border-top: 1px solid var(--border); text-align: center; }
+    footer p { font-size: 12px; color: var(--text-muted); }
+    @media (max-width: 480px) { nav { margin-bottom: 32px; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="../">&larr; Back to Portfolio</a>
+    </div>
+  </nav>
+  <main class="container">
+    <h1 class="page-title">Writing</h1>
+    <p class="page-desc">Thoughts and lessons from building.</p>
+    <input type="text" class="search-bar" id="searchInput" placeholder="Search posts..." aria-label="Search blog posts">
+    <div class="filter-row" role="tablist" aria-label="Filter posts">
+      <button class="filter-chip active" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button class="filter-chip" data-filter="Dev" role="tab" aria-selected="false">Dev</button>
+      <button class="filter-chip" data-filter="Reflection" role="tab" aria-selected="false">Reflection</button>
+    </div>
+    <div class="writing-grid" id="postGrid">
+      <article class="writing-card" data-tags="Dev">
+        <div class="writing-meta">
+          <time datetime="2026-04">April 2026</time>
+          <span class="writing-tag">Dev</span>
+          <span class="reading-time">2 min read</span>
+        </div>
+        <h3>Building a Recommender System with Flask</h3>
+        <p>A walkthrough of how the DOrSU Program Recommender works under the hood — from data collection to the matching algorithm.</p>
+        <a href="building-a-recommender-system.html" class="writing-link">Read Post</a>
+      </article>
+      <article class="writing-card" data-tags="Dev">
+        <div class="writing-meta">
+          <time datetime="2026-02">February 2026</time>
+          <span class="writing-tag">Dev</span>
+          <span class="reading-time">2 min read</span>
+        </div>
+        <h3>Bringing a Pastry Shop Online</h3>
+        <p>Lessons from building SweetWorks — translating a real-world bakery business into a web experience that captures the brand.</p>
+        <a href="bringing-a-pastry-shop-online.html" class="writing-link">Read Post</a>
+      </article>
+      <article class="writing-card" data-tags="Reflection">
+        <div class="writing-meta">
+          <time datetime="2025-11">November 2025</time>
+          <span class="writing-tag">Reflection</span>
+          <span class="reading-time">2 min read</span>
+        </div>
+        <h3>3 Lessons from 3 Years as a BSIT Student</h3>
+        <p>What I've learned about coding, collaboration, and staying curious during my time at DOrSU.</p>
+        <a href="3-lessons-from-3-years-bsit.html" class="writing-link">Read Post</a>
+      </article>
+    </div>
+    <div class="no-results" id="noResults">No posts match your search.</div>
+  </main>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Christopher Lyod B. Mercado</p>
+    </div>
+  </footer>
+  <script>
+    var searchInput = document.getElementById('searchInput');
+    var filterChips = document.querySelectorAll('.filter-chip');
+    var posts = document.querySelectorAll('.writing-card');
+    var noResults = document.getElementById('noResults');
+    var activeFilter = 'all';
+
+    function filterPosts() {
+      var query = searchInput.value.toLowerCase().trim();
+      var visible = 0;
+      posts.forEach(function (post) {
+        var tags = post.getAttribute('data-tags') || '';
+        var title = post.querySelector('h3').textContent.toLowerCase();
+        var desc = post.querySelector('p').textContent.toLowerCase();
+        var matchesFilter = activeFilter === 'all' || tags === activeFilter;
+        var matchesSearch = !query || title.indexOf(query) !== -1 || desc.indexOf(query) !== -1;
+        var show = matchesFilter && matchesSearch;
+        post.classList.toggle('hidden', !show);
+        if (show) visible++;
+      });
+      noResults.style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    filterChips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        filterChips.forEach(function (c) { c.classList.remove('active'); c.setAttribute('aria-selected', 'false'); });
+        this.classList.add('active');
+        this.setAttribute('aria-selected', 'true');
+        activeFilter = this.getAttribute('data-filter');
+        filterPosts();
+      });
+    });
+
+    searchInput.addEventListener('input', filterPosts);
+  </script>
+</body>
+</html>

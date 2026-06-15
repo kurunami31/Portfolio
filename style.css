@@ -11,6 +11,7 @@
   --border-strong: rgba(255, 255, 255, 0.12);
   --accent-start: #f97316;
   --accent-end: #d946ef;
+  --accent-mid: #c026d3;
   --selection: rgba(249, 115, 22, 0.3);
   --nav-bg: rgba(7, 7, 7, 0.85);
   --skill-fill: #222;
@@ -27,6 +28,7 @@
   --text-dim: #aaa;
   --border: rgba(0, 0, 0, 0.06);
   --border-strong: rgba(0, 0, 0, 0.12);
+  --accent-mid: #9333ea;
   --nav-bg: rgba(248, 248, 248, 0.9);
   --skill-fill: #eee;
 }
@@ -757,7 +759,7 @@ section {
 }
 
 .filter-chip.active {
-  background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+  background: linear-gradient(135deg, var(--accent-start), var(--accent-mid));
   border-color: transparent;
   color: #fff;
 }
@@ -773,8 +775,16 @@ section {
 
 .project-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(249, 115, 22, 0.15);
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+  border-color: rgba(249, 115, 22, 0.25);
+  box-shadow: 0 24px 80px rgba(249, 115, 22, 0.08), 0 0 40px rgba(249, 115, 22, 0.04);
+}
+
+.project-card:hover .project-preview {
+  transform: scale(1.03);
+}
+
+.project-card:hover .preview-content img {
+  transform: scale(1.06);
 }
 
 .project-card.hidden {
@@ -789,6 +799,7 @@ section {
   justify-content: center;
   position: relative;
   overflow: hidden;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .project-preview::after {
@@ -854,6 +865,7 @@ section {
   max-height: 120px;
   object-fit: contain;
   filter: drop-shadow(0 4px 16px rgba(0,0,0,0.3));
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .project-logo {
@@ -985,7 +997,7 @@ section {
   display: inline;
   font-size: 11px;
   font-weight: 700;
-  color: var(--accent-start);
+  color: var(--accent-mid);
   margin-right: 6px;
 }
 
@@ -1100,6 +1112,12 @@ section {
   color: var(--text-dim);
 }
 
+.reading-time {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
 .writing-tag {
   font-size: 10px;
   font-weight: 600;
@@ -1107,8 +1125,8 @@ section {
   letter-spacing: 0.5px;
   padding: 3px 10px;
   border-radius: 4px;
-  background: rgba(249, 115, 22, 0.1);
-  color: var(--accent-start);
+  background: rgba(192, 38, 211, 0.1);
+  color: var(--accent-mid);
 }
 
 .writing-card h3 {
@@ -1461,7 +1479,15 @@ footer p {
 
 .modal-body .modal-footer {
   display: flex;
+  align-items: center;
   gap: 12px;
+  flex-wrap: wrap;
+}
+
+.modal-note {
+  font-size: 11px;
+  color: var(--text-dim);
+  font-style: italic;
 }
 
 .reveal {

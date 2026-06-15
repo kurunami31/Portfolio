@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SweetWorks Pastry Shop — Case Study | Christopher Lyod B. Mercado</title>
+  <meta name="description" content="How I built a web presence for SweetWorks, an artisan pastry shop in Mati City — from brand understanding to deployment.">
+  <meta property="og:title" content="SweetWorks Pastry Shop — Case Study">
+  <meta property="og:description" content="How I built a web presence for SweetWorks, an artisan pastry shop in Mati City — from brand understanding to deployment.">
+  <meta property="og:image" content="../og-image.webp">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kurunami31.github.io/Portfolio/case-studies/sweetworks.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #070707; --bg-card: #0c0c0c; --text-primary: #f5f5f5; --text-secondary: #a0a0a0; --text-muted: #666; --text-dim: #444; --border: rgba(255,255,255,0.06); --border-strong: rgba(255,255,255,0.12); --accent-start: #f97316; --accent-end: #d946ef; --accent-mid: #c026d3; --selection: rgba(249,115,22,0.3); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+    ::selection { background: var(--selection); color: #fff; }
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    nav { padding: 24px 0; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.3s; }
+    nav a:hover { color: var(--text-primary); }
+    article { padding-bottom: 80px; }
+    .case-meta { display: flex; gap: 12px; align-items: center; margin-bottom: 24px; flex-wrap: wrap; }
+    .case-badge { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 10px; border-radius: 4px; background: rgba(249,115,22,0.1); color: var(--accent-start); }
+    .case-link { font-size: 13px; color: var(--accent-start); text-decoration: none; font-weight: 600; }
+    .case-link:hover { text-decoration: underline; }
+    h1 { font-size: clamp(28px, 4vw, 40px); font-weight: 800; letter-spacing: -1px; line-height: 1.2; margin-bottom: 32px; }
+    h2 { font-size: 20px; font-weight: 700; margin-top: 40px; margin-bottom: 12px; color: var(--text-primary); }
+    p { font-size: 16px; color: var(--text-secondary); margin-bottom: 20px; }
+    ul { color: var(--text-secondary); font-size: 16px; margin-bottom: 20px; padding-left: 24px; }
+    li { margin-bottom: 8px; }
+    .tech-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+    .tech-list span { padding: 6px 14px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 6px; font-size: 12px; font-weight: 500; color: var(--text-secondary); }
+    hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; font-family: 'Inter', sans-serif; cursor: pointer; border: none; }
+    .btn-primary { background: linear-gradient(135deg, var(--accent-start), var(--accent-end)); color: #fff; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(249,115,22,0.25); }
+    footer { padding: 32px 0; border-top: 1px solid var(--border); text-align: center; }
+    footer p { font-size: 12px; color: var(--text-muted); }
+    @media (max-width: 480px) { nav { margin-bottom: 32px; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="../">&larr; Back to Portfolio</a>
+    </div>
+  </nav>
+  <article class="container">
+    <div class="case-meta">
+      <span class="case-badge">Client Project</span>
+      <a href="https://sweetworks.onrender.com/" target="_blank" class="case-link">Visit Live &rarr;</a>
+    </div>
+    <h1>SweetWorks Pastry Shop</h1>
+    <div class="tech-list">
+      <span>Python</span>
+      <span>Flask</span>
+      <span>Bootstrap</span>
+      <span>JavaScript</span>
+      <span>Render</span>
+    </div>
+
+    <h2>Problem</h2>
+    <p>SweetWorks is an artisan pastry shop in Mati City, Davao Oriental. The owner needed a website that captures the warmth and craftsmanship of their brand while providing an online storefront for product discovery and custom cake inquiries.</p>
+
+    <h2>Approach</h2>
+    <p>Before writing code, I spent time understanding the brand and its customers. SweetWorks isn't just a bakery — it's a place for custom-designed cakes for weddings, birthdays, and special occasions. Every design decision came from that understanding.</p>
+    <ul>
+      <li><strong>Warm color palette</strong> — inspired by the shop's interior, using muted tones that feel inviting</li>
+      <li><strong>Product-first layout</strong> — catalog and gallery are the focal points</li>
+      <li><strong>Inquiry-driven CTA</strong> — custom cakes require consultation, so calls-to-action lead to contact rather than direct purchase</li>
+    </ul>
+
+    <h2>Implementation</h2>
+    <p>Flask powers the backend with a product catalog structure. Bootstrap ensures responsive design — crucial since many customers browse on mobile. The site is deployed on Render's free tier.</p>
+
+    <h2>Result</h2>
+    <p>The site is live and the owner has received positive feedback from customers. It serves as both a digital storefront and a brand platform that communicates the personal touch SweetWorks is known for.</p>
+
+    <hr>
+    <a href="https://sweetworks.onrender.com/" target="_blank" class="btn btn-primary">Visit Live Project</a>
+  </article>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Christopher Lyod B. Mercado</p>
+    </div>
+  </footer>
+</body>
+</html>
