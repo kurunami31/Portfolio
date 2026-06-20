@@ -1722,7 +1722,7 @@ footer p {
 .chat-bubble {
   position: fixed;
   bottom: 88px;
-  left: 24px;
+  right: 24px;
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -1746,7 +1746,7 @@ footer p {
 .chat-panel {
   position: fixed;
   bottom: 150px;
-  left: 24px;
+  right: 24px;
   width: 360px;
   max-height: 480px;
   background: var(--bg-elevated);
@@ -1759,7 +1759,7 @@ footer p {
   opacity: 0;
   visibility: hidden;
   transform: translateY(16px) scale(0.96);
-  transform-origin: bottom left;
+  transform-origin: bottom right;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -1936,7 +1936,7 @@ footer p {
   }
   
   .chat-bubble {
-    left: 12px;
+    right: 12px;
     bottom: 80px;
   }
 }
