@@ -50,7 +50,7 @@ async function handleRequest(request) {
       });
     }
 
-    var groqResponse = await fetch('https://api.groq.com/v1/chat/completions', {
+    var groqResponse = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Authorization': 'Bearer ' + GROQ_API_KEY,

@@ -421,7 +421,7 @@ var chatClose = document.getElementById('chatClose');
 var chatMessages = document.getElementById('chatMessages');
 var chatInput = document.getElementById('chatInput');
 var chatSend = document.getElementById('chatSend');
-var chatUrl = 'https://portfolio-chat.dms-prime31.workers.dev';
+var chatUrl = 'https://portfolio-chat.dms-prime3101.workers.dev';
 
 function scrollChat() {
   chatMessages.scrollTop = chatMessages.scrollHeight;
