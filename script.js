@@ -413,4 +413,84 @@ shortcutsOverlay.querySelector('.shortcuts-close').addEventListener('click', fun
   shortcutsOverlay.classList.remove('open');
 });
 
+// -- Chat assistant --
+
+var chatBubble = document.getElementById('chatBubble');
+var chatPanel = document.getElementById('chatPanel');
+var chatClose = document.getElementById('chatClose');
+var chatMessages = document.getElementById('chatMessages');
+var chatInput = document.getElementById('chatInput');
+var chatSend = document.getElementById('chatSend');
+var chatUrl = 'https://portfolio-chat.dms-prime31.workers.dev';
+
+function scrollChat() {
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+chatBubble.addEventListener('click', function () {
+  chatPanel.classList.toggle('open');
+  if (chatPanel.classList.contains('open')) {
+    chatInput.focus();
+  }
+});
+
+chatClose.addEventListener('click', function () {
+  chatPanel.classList.remove('open');
+});
+
+function addMessage(text, type) {
+  var div = document.createElement('div');
+  div.className = 'chat-msg ' + type;
+  div.innerHTML = '<div class="chat-msg-content">' + text + '</div>';
+  chatMessages.appendChild(div);
+  scrollChat();
+  return div;
+}
+
+function sendMessage() {
+  var text = chatInput.value.trim();
+  if (!text) return;
+
+  chatInput.value = '';
+  addMessage(escapeHtml(text), 'user');
+
+  chatSend.disabled = true;
+  var typingEl = addMessage('Thinking...', 'typing');
+
+  fetch(chatUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: text })
+  })
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      typingEl.remove();
+      if (data.reply) {
+        addMessage(escapeHtml(data.reply), 'bot');
+      } else {
+        addMessage('Sorry, I couldn\'t process that.', 'bot');
+      }
+    })
+    .catch(function () {
+      typingEl.remove();
+      addMessage('Service unavailable. Try the contact form instead.', 'bot');
+    })
+    .finally(function () {
+      chatSend.disabled = false;
+      chatInput.focus();
+    });
+}
+
+function escapeHtml(str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
+chatSend.addEventListener('click', sendMessage);
+
+chatInput.addEventListener('keydown', function (e) {
+  if (e.key === 'Enter') sendMessage();
+});
+
 
