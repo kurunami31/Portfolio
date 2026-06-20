@@ -245,17 +245,6 @@ if (contactForm) {
   });
 }
 
-function animateSkillBars(container) {
-  var fills = container.querySelectorAll('.skill-bar-fill');
-  fills.forEach(function (fill, i) {
-    var percent = parseInt(fill.getAttribute('data-width')) || 0;
-    if (fill._animated) return;
-    fill._animated = true;
-    fill.style.transitionDelay = (i * 80) + 'ms';
-    fill.style.width = percent + '%';
-  });
-}
-
 var revealElements = document.querySelectorAll('.reveal');
 
 var revealObserver = new IntersectionObserver(
@@ -263,7 +252,6 @@ var revealObserver = new IntersectionObserver(
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        animateSkillBars(entry.target);
       }
     });
   },
