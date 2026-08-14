@@ -82,6 +82,19 @@ var projects = [
       'Institution-level analytics and reporting'
     ],
     url: 'https://deis-portal.vercel.app/'
+  },
+  {
+    name: 'DOrSU eSPORTS',
+    tagline: 'Home of the Stallions · Esports Organization',
+    description: 'DOrSU eSPORTS is the official esports organization of Davao Oriental State University. A dedicated platform for the Stallions — tournament matching, team registrations, and announcements, all in one place for the campus esports community.',
+    tech: ['JavaScript', 'HTML & CSS', 'Vercel'],
+    features: [
+      'Tournament matching for the Stallions',
+      'Team registrations and roster management',
+      'Announcements and event updates',
+      'Campus esports community hub'
+    ],
+    url: 'https://dorsu-esports.vercel.app/'
   }
 ];
 
