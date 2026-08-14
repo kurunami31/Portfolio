@@ -17,20 +17,6 @@ var loader = document.getElementById('loader');
 
 var projects = [
   {
-    name: 'DOrSU Program Recommender',
-    tagline: 'Davao Oriental State University',
-    description: 'An intelligent recommendation system built to help incoming college students identify the most suitable academic program based on their personal interests, strengths, and academic preferences. The system uses a structured evaluation approach to match students with programs offered at DOrSU.',
-    tech: ['Python', 'Flask', 'HTML & CSS', 'JavaScript', 'Render'],
-    features: [
-      'Personalized program recommendations based on student input',
-      'Interactive questionnaire interface',
-      'Real-time result generation',
-      'Mobile-responsive design'
-    ],
-    url: 'https://dorsu-recommender.onrender.com/',
-    caseStudy: 'case-studies/dorsu-recommender.html'
-  },
-  {
     name: 'SweetWorks Pastry Shop',
     tagline: 'Artisan pastries, custom cakes & dessert services',
     description: 'A full web presence for SweetWorks, an artisan pastry shop based in Mati City, Davao Oriental. The site showcases their product offerings, highlights their custom cake design services, and provides an online storefront experience for customers.',
@@ -57,6 +43,45 @@ var projects = [
     ],
     url: 'https://resibooth.onrender.com/',
     caseStudy: 'case-studies/resibooth.html'
+  },
+  {
+    name: 'CODEX',
+    tagline: 'CODEBYTERS · BSIT Community Platform',
+    description: 'The community platform of CODEBYTERS, the BSIT student organization of Davao Oriental State University. One terminal for the CODEBYTERS squad — attend org events with a QR scan, keep up with members, learn from live feeds, and get help from the in-house AI assistant. Built for BSIT students, by BSIT students.',
+    tech: ['JavaScript', 'HTML & CSS', 'PostgreSQL', 'Vercel'],
+    features: [
+      'Org events with QR attendance',
+      'Live learning feeds from HN and GitHub',
+      'Digital student ID for BSIT students',
+      'Built-in AI assistant, online 24/7'
+    ],
+    url: 'https://bsitcodex.vercel.app/'
+  },
+  {
+    name: 'FNAHS · PULSO',
+    tagline: 'Student Nurses Organization',
+    description: 'FNAHS · PULSO is the community platform of PULSO — the Proactive and United Legion of Student Nurses Organization — at the Faculty of Nursing and Allied Health Sciences, Davao Oriental State University. A secure portal reserved for the students of the faculty.',
+    tech: ['JavaScript', 'TypeScript', 'HTML & CSS', 'PostgreSQL', 'Vercel'],
+    features: [
+      'Member portal for the student nurses organization',
+      'Secure login reserved for org students',
+      'Online home for FNAHS announcements and updates',
+      'Mobile-responsive design'
+    ],
+    url: 'https://fnahs.vercel.app/'
+  },
+  {
+    name: 'DOrSU Enrollment Information System',
+    tagline: 'DEIS · Davao Oriental State University',
+    description: 'DEIS is the DOrSU Enrollment Information System — one portal for the entire enrollment cycle of Davao Oriental State University, from student verification and credential activation to subject loading, approvals, grading, clearance, and reporting.',
+    tech: ['JavaScript', 'HTML & CSS', 'Vercel'],
+    features: [
+      'Student verification and credential activation',
+      'Online enrollment flow',
+      'Grades, records, and clearance tracking',
+      'Institution-level analytics and reporting'
+    ],
+    url: 'https://deis-portal.vercel.app/'
   }
 ];
 
@@ -166,8 +191,8 @@ function openModal(index) {
     '</ul>',
     '<div class="modal-footer">',
     '  <a href="' + project.url + '" target="_blank" class="btn btn-primary">Visit Live</a>',
-    '  <a href="' + project.caseStudy + '" class="btn btn-secondary">Case Study</a>',
-    '  <span class="modal-note">Render free tier &mdash; may take a moment to wake</span>',
+    (project.caseStudy ? '  <a href="' + project.caseStudy + '" class="btn btn-secondary">Case Study</a>' : ''),
+    '  <span class="modal-note">Free-tier hosting &mdash; may take a moment to load</span>',
     '</div>'
   ].join('');
 
@@ -184,6 +209,25 @@ document.querySelectorAll('.project-card').forEach(function (card) {
   card.addEventListener('click', function () {
     var index = parseInt(this.getAttribute('data-project'));
     openModal(index);
+  });
+});
+
+var filterChips = document.querySelectorAll('.filter-chip');
+var projectCards = document.querySelectorAll('.project-card');
+
+filterChips.forEach(function (chip) {
+  chip.addEventListener('click', function () {
+    filterChips.forEach(function (c) {
+      c.classList.remove('active');
+      c.setAttribute('aria-selected', 'false');
+    });
+    this.classList.add('active');
+    this.setAttribute('aria-selected', 'true');
+    var filter = this.getAttribute('data-filter');
+    projectCards.forEach(function (card) {
+      var show = filter === 'all' || card.getAttribute('data-category') === filter;
+      card.classList.toggle('hidden', !show);
+    });
   });
 });
 
