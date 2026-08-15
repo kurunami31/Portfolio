@@ -475,37 +475,40 @@ a:focus-visible, button:focus-visible, .project-card:focus-visible {
 
 .hero-title {
   font-family: var(--font-serif);
-  font-size: clamp(52px, 8.5vw, 100px);
   font-weight: 600;
   line-height: 0.98;
-  letter-spacing: -0.03em;
   margin-bottom: 26px;
   display: grid;
   width: max-content;
   max-width: 100%;
 }
 
-.hero-title em {
-  font-style: italic;
-  font-weight: 400;
+.name-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: clamp(17px, 2vw, 26px);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  margin-bottom: 0.6em;
+}
+
+.name-mid {
   color: var(--accent);
 }
 
-.name-line {
+.name-surname {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: clamp(52px, 8.5vw, 100px);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
   white-space: nowrap;
-}
-
-.name-line-split {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-}
-
-.name-line-stretch {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  flex: 1;
 }
 
 .hero-role {
@@ -2208,6 +2211,10 @@ footer p {
     letter-spacing: -0.02em;
   }
 
+  .name-top {
+    font-size: clamp(15px, 2.4vw, 22px);
+  }
+
   .projects-grid,
   .writing-grid,
   .repo-grid {
@@ -2257,7 +2264,8 @@ footer p {
   section { padding: 78px 0; }
   .hero-cta { flex-direction: column; }
   .btn { width: 100%; }
-  .hero-title { font-size: clamp(44px, 13vw, 62px); }
+  .name-surname { font-size: clamp(38px, 11vw, 52px); }
+  .name-top { font-size: clamp(13px, 3.4vw, 17px); }
   .hero-role { font-size: 16px; }
   .marquee-track { gap: 22px; }
   .stat-number { font-size: 27px; }
@@ -2340,7 +2348,8 @@ footer p {
 
   .hero { min-height: auto; padding: 40px 0; }
   section { padding: 26px 0; }
-  .hero-title { font-size: 30pt; }
+  .name-surname { font-size: 30pt; }
+  .name-top { font-size: 10pt; }
   .hero-role, .hero-desc { color: #333; }
   .section-title { font-size: 20pt; }
   .project-card, .writing-card, .repo-card, .timeline-card {
