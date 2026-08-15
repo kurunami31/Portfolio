@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building for Student Orgs: From Idea to 3 Live Platforms | Christopher Lyod B. Mercado</title>
+  <meta name="description" content="What it took to ship CODEX, FNAHS · PULSO, and DOrSU eSPORTS — and what running real platforms for campus communities taught me.">
+  <meta property="og:title" content="Building for Student Orgs: From Idea to 3 Live Platforms | Christopher Lyod B. Mercado">
+  <meta property="og:description" content="What it took to ship CODEX, FNAHS · PULSO, and DOrSU eSPORTS — and what running real platforms for campus communities taught me.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kurunami31.github.io/Portfolio/blog/building-for-student-orgs.html">
+  <meta property="og:image" content="../og-image.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="article:published_time" content="2026-08">
+  <meta property="article:author" content="Christopher Lyod B. Mercado">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #070707; --bg-card: #0c0c0c; --text-primary: #f5f5f5; --text-secondary: #a0a0a0; --text-muted: #666; --border: rgba(255,255,255,0.06); --border-strong: rgba(255,255,255,0.12); --accent-start: #f97316; --accent-end: #d946ef; --selection: rgba(249,115,22,0.3); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+    ::selection { background: var(--selection); color: #fff; }
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    nav { padding: 24px 0; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.3s; }
+    nav a:hover { color: var(--text-primary); }
+    article { padding-bottom: 80px; }
+    .post-meta { display: flex; gap: 12px; align-items: center; margin-bottom: 24px; flex-wrap: wrap; }
+    .post-meta time { font-size: 13px; color: var(--text-muted); }
+    .post-tag { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 10px; border-radius: 4px; background: rgba(249,115,22,0.1); color: var(--accent-start); }
+    .reading-time { font-size: 11px; color: var(--text-muted); font-style: italic; }
+    h1 { font-size: clamp(28px, 4vw, 40px); font-weight: 800; letter-spacing: -1px; line-height: 1.2; margin-bottom: 32px; }
+    h2 { font-size: 22px; font-weight: 700; margin-top: 40px; margin-bottom: 16px; color: var(--text-primary); }
+    p { font-size: 16px; color: var(--text-secondary); margin-bottom: 20px; }
+    hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+    footer { padding: 32px 0; border-top: 1px solid var(--border); text-align: center; }
+    footer p { font-size: 12px; color: var(--text-muted); }
+    @media (max-width: 480px) { nav { margin-bottom: 32px; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="../">&larr; Back to Portfolio</a>
+    </div>
+  </nav>
+  <article class="container">
+    <div class="post-meta">
+      <time datetime="2026-08">August 2026</time>
+      <span class="post-tag">Dev</span>
+      <span class="reading-time">3 min read</span>
+    </div>
+    <h1>Building for Student Orgs: From Idea to 3 Live Platforms</h1>
+    <p>This year I shipped platforms for three student organizations at Davao Oriental State University — CODEX for the CODEBYTERS BSIT org, FNAHS · PULSO for the student nurses, and DOrSU eSPORTS for the Stallions. Each one was different, but they taught me the same lessons about building software people actually use.</p>
+
+    <h2>Every org is a different user</h2>
+    <p>CODEX members want to check in to events fast and learn between meetings. PULSO needs a secure portal reserved for their own students. The esports org needs rosters and matchups organized before tournament day. Same campus, same age group, totally different needs. The lesson: never copy-paste a feature set. Start from what the org actually does every week, not from what a generic "community platform" should have.</p>
+
+    <h2>Scaffolding beats finishing touches</h2>
+    <p>With three platforms in flight, I learned to get a boring, working version live first — core feature, real deployment, real users. Polish comes after people start using it and tell you what actually matters. The AI assistant on CODEX and the QR attendance only got built because the base platform was already running and real members were using it.</p>
+
+    <h2>Free-tier hosting forces good habits</h2>
+    <p>Everything runs on free tiers. That constraint turned out to be a teacher: it forced me to keep the front end light, think about cold starts, and choose services that scale with the budget of a student. Knowing how to ship on a zero budget is a real skill — it makes you deliberate about every dependency.</p>
+
+    <h2>An org platform is a live product</h2>
+    <p>The biggest mindset shift: these aren't capstone demos. Announcements get posted, events get attended, members get logged in. A small bug is visible to the whole org the same day. Maintaining software after launch — watching logs, fixing mobile quirks, responding to feedback — has taught me more about web development than any single build.</p>
+
+    <p>Three platforms later, I'm convinced every developer should build for a real community at least once. The users are the feature list, the feedback is the roadmap, and there's no better motivation than your orgmates actually using what you built.</p>
+  </article>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Christopher Lyod B. Mercado</p>
+    </div>
+  </footer>
+</body>
+</html>

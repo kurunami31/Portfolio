@@ -2,28 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://kurunami31.github.io/Portfolio/</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://kurunami31.github.io/Portfolio/404.html</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://kurunami31.github.io/Portfolio/blog/index.html</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kurunami31.github.io/Portfolio/case-studies/sweetworks.html</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kurunami31.github.io/Portfolio/case-studies/resibooth.html</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kurunami31.github.io/Portfolio/case-studies/codex.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kurunami31.github.io/Portfolio/case-studies/dorsu-esports.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kurunami31.github.io/Portfolio/blog/building-for-student-orgs.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kurunami31.github.io/Portfolio/blog/bringing-a-pastry-shop-online.html</loc>

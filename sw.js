@@ -1,4 +1,4 @@
-var CACHE = 'portfolio-v5';
+var CACHE = 'portfolio-v6';
 var urls = [
   'index.html',
   'style.css',
@@ -12,7 +12,13 @@ var urls = [
   'camera-favicon.svg',
   'og-image.webp',
   'sitemap.xml',
-  '404.html'
+  '404.html',
+  'blog/index.html',
+  'blog/building-for-student-orgs.html',
+  'case-studies/sweetworks.html',
+  'case-studies/resibooth.html',
+  'case-studies/codex.html',
+  'case-studies/dorsu-esports.html'
 ];
 
 self.addEventListener('install', function (e) {

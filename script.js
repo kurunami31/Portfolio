@@ -55,7 +55,8 @@ var projects = [
       'Digital student ID for BSIT students',
       'Built-in AI assistant, online 24/7'
     ],
-    url: 'https://bsitcodex.vercel.app/'
+    url: 'https://bsitcodex.vercel.app/',
+    caseStudy: 'case-studies/codex.html'
   },
   {
     name: 'FNAHS · PULSO',
@@ -94,7 +95,8 @@ var projects = [
       'Announcements and event updates',
       'Campus esports community hub'
     ],
-    url: 'https://dorsu-esports.vercel.app/'
+    url: 'https://dorsu-esports.vercel.app/',
+    caseStudy: 'case-studies/dorsu-esports.html'
   }
 ];
 
@@ -126,14 +128,16 @@ themeToggle.addEventListener('click', function () {
 });
 
 menuToggle.addEventListener('click', function () {
-  this.classList.toggle('active');
-  mobileOverlay.classList.toggle('open');
-  document.body.style.overflow = mobileOverlay.classList.contains('open') ? 'hidden' : '';
+  var open = this.classList.toggle('active');
+  mobileOverlay.classList.toggle('open', open);
+  this.setAttribute('aria-expanded', open ? 'true' : 'false');
+  document.body.style.overflow = open ? 'hidden' : '';
 });
 
 mobileOverlay.querySelectorAll('a').forEach(function (link) {
   link.addEventListener('click', function () {
     menuToggle.classList.remove('active');
+    menuToggle.setAttribute('aria-expanded', 'false');
     mobileOverlay.classList.remove('open');
     document.body.style.overflow = '';
   });
@@ -211,11 +215,19 @@ function openModal(index) {
 
   modalOverlay.classList.add('open');
   document.body.style.overflow = 'hidden';
+  lastFocused = document.activeElement;
+  modalOverlay.querySelector('.modal-close').focus();
 }
+
+var lastFocused = null;
 
 function closeModal() {
   modalOverlay.classList.remove('open');
   document.body.style.overflow = '';
+  if (lastFocused && typeof lastFocused.focus === 'function') {
+    lastFocused.focus();
+    lastFocused = null;
+  }
 }
 
 document.querySelectorAll('.project-card').forEach(function (card) {
@@ -320,6 +332,38 @@ var revealObserver = new IntersectionObserver(
 
 revealElements.forEach(function (el) { revealObserver.observe(el); });
 
+var statNumbers = document.querySelectorAll('.stat-number');
+
+function animateCount(el) {
+  var target = parseInt(el.getAttribute('data-count'), 10);
+  var suffix = el.getAttribute('data-suffix') || '';
+  var duration = 1200;
+  var start = null;
+
+  function step(timestamp) {
+    if (!start) start = timestamp;
+    var progress = Math.min((timestamp - start) / duration, 1);
+    var eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(target * eased) + suffix;
+    if (progress < 1) requestAnimationFrame(step);
+  }
+
+  requestAnimationFrame(step);
+}
+
+if (statNumbers.length) {
+  var statObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        animateCount(entry.target);
+        statObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  statNumbers.forEach(function (el) { statObserver.observe(el); });
+}
+
 document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
@@ -361,7 +405,7 @@ function updateActiveDot() {
     if (navLinks) {
       var links = navLinks.querySelectorAll('a');
       links.forEach(function (l) { l.classList.remove('active'); });
-      if (links[active]) links[active].classList.add('active');
+      if (active > 0 && links[active - 1]) links[active - 1].classList.add('active');
     }
   }
 }
@@ -419,7 +463,7 @@ document.addEventListener('visibilitychange', function () {
 // -- Keyboard shortcuts --
 
 var shortcutsOverlay = document.getElementById('shortcutsOverlay');
-var sectionIds = ['hero', 'career', 'projects', 'writing'];
+var sectionIds = ['hero', 'timeline', 'projects', 'writing'];
 
 document.addEventListener('keydown', function (e) {
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
@@ -434,6 +478,11 @@ document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape') {
     if (shortcutsOverlay.classList.contains('open')) {
       shortcutsOverlay.classList.remove('open');
+      return;
+    }
+    if (chatPanel && chatPanel.classList.contains('open')) {
+      chatPanel.classList.remove('open');
+      chatBubble.focus();
       return;
     }
   }
