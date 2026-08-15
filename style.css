@@ -4,22 +4,22 @@
    ============================================================ */
 
 :root {
-  --bg: #0d0c0a;
-  --bg-soft: #100f0d;
-  --bg-card: #14120f;
-  --bg-elevated: #171410;
-  --text-primary: #f2ede4;
-  --text-secondary: #b3aca1;
-  --text-muted: #7d766c;
-  --text-dim: #57524a;
-  --text-faint: #45403a;
-  --border: rgba(242, 237, 228, 0.08);
-  --border-strong: rgba(242, 237, 228, 0.16);
-  --accent: #ffb454;
-  --accent-deep: #e07b39;
-  --accent-ink: #1a1206;
-  --selection: rgba(255, 180, 84, 0.24);
-  --nav-bg: rgba(13, 12, 10, 0.86);
+  --bg: #0b0c10;
+  --bg-soft: #0f1016;
+  --bg-card: #12141a;
+  --bg-elevated: #15171e;
+  --text-primary: #e8eaf0;
+  --text-secondary: #b0b4c0;
+  --text-muted: #848a99;
+  --text-dim: #5f6573;
+  --text-faint: #4a4f5b;
+  --border: rgba(232, 234, 240, 0.08);
+  --border-strong: rgba(232, 234, 240, 0.16);
+  --accent: #6ea8fe;
+  --accent-deep: #3f6fd6;
+  --accent-ink: #0a1220;
+  --selection: rgba(110, 168, 254, 0.24);
+  --nav-bg: rgba(11, 12, 16, 0.86);
   --shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
   --font-serif: 'Fraunces', Georgia, serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -27,23 +27,23 @@
 }
 
 [data-theme="light"] {
-  --bg: #f6f2ea;
-  --bg-soft: #f1ecdf;
-  --bg-card: #fffdf8;
+  --bg: #f6f7f9;
+  --bg-soft: #eef0f4;
+  --bg-card: #ffffff;
   --bg-elevated: #ffffff;
-  --text-primary: #211c15;
-  --text-secondary: #5c554b;
-  --text-muted: #857c6f;
-  --text-dim: #a49b8d;
-  --text-faint: #b9b0a1;
-  --border: rgba(33, 28, 21, 0.09);
-  --border-strong: rgba(33, 28, 21, 0.17);
-  --accent: #b45309;
-  --accent-deep: #92400e;
-  --accent-ink: #fff7ea;
-  --selection: rgba(180, 83, 9, 0.18);
-  --nav-bg: rgba(246, 242, 234, 0.9);
-  --shadow: 0 18px 48px rgba(60, 45, 20, 0.1);
+  --text-primary: #16181d;
+  --text-secondary: #4b5160;
+  --text-muted: #73798a;
+  --text-dim: #9aa0ae;
+  --text-faint: #b4b9c5;
+  --border: rgba(22, 24, 29, 0.09);
+  --border-strong: rgba(22, 24, 29, 0.17);
+  --accent: #3566d6;
+  --accent-deep: #2450b0;
+  --accent-ink: #f2f6ff;
+  --selection: rgba(53, 102, 214, 0.18);
+  --nav-bg: rgba(246, 247, 249, 0.9);
+  --shadow: 0 18px 48px rgba(20, 24, 40, 0.12);
 }
 
 * {
@@ -307,7 +307,7 @@ a:focus-visible, button:focus-visible, .project-card:focus-visible {
 .mobile-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(13, 12, 10, 0.97);
+  background: rgba(11, 12, 16, 0.97);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   z-index: 999;
@@ -320,7 +320,7 @@ a:focus-visible, button:focus-visible, .project-card:focus-visible {
 }
 
 [data-theme="light"] .mobile-overlay {
-  background: rgba(246, 242, 234, 0.97);
+  background: rgba(246, 247, 249, 0.97);
 }
 
 .mobile-overlay.open {
@@ -433,7 +433,7 @@ a:focus-visible, button:focus-visible, .project-card:focus-visible {
   right: -12%;
   width: 640px;
   height: 640px;
-  background: radial-gradient(circle, rgba(255, 180, 84, 0.07) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(110, 168, 254, 0.07) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -649,7 +649,7 @@ a:focus-visible, button:focus-visible, .project-card:focus-visible {
 .btn-primary:hover {
   background: var(--accent-deep);
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(224, 123, 57, 0.25);
+  box-shadow: 0 10px 28px rgba(63, 111, 214, 0.25);
 }
 
 .btn-secondary {
@@ -903,7 +903,7 @@ section[id] {
 
 .timeline-item.visible .timeline-dot {
   background: var(--accent);
-  box-shadow: 0 0 14px rgba(255, 180, 84, 0.35);
+  box-shadow: 0 0 14px rgba(110, 168, 254, 0.35);
   transition: all 0.5s ease;
 }
 
@@ -916,7 +916,7 @@ section[id] {
 }
 
 .timeline-card:hover {
-  border-color: rgba(255, 180, 84, 0.25);
+  border-color: rgba(110, 168, 254, 0.25);
   transform: translateX(4px);
 }
 
@@ -996,7 +996,7 @@ section[id] {
 
 .project-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(255, 180, 84, 0.3);
+  border-color: rgba(110, 168, 254, 0.3);
   box-shadow: var(--shadow);
 }
 
@@ -1205,7 +1205,7 @@ section[id] {
 }
 
 .skill-row:hover {
-  background: rgba(255, 180, 84, 0.03);
+  background: rgba(110, 168, 254, 0.03);
 }
 
 .skill-icon {
@@ -1266,7 +1266,7 @@ section[id] {
 }
 
 .repo-card:hover {
-  border-color: rgba(255, 180, 84, 0.25);
+  border-color: rgba(110, 168, 254, 0.25);
   transform: translateY(-3px);
 }
 
@@ -1339,7 +1339,7 @@ section[id] {
 }
 
 .writing-card:hover {
-  border-color: rgba(255, 180, 84, 0.25);
+  border-color: rgba(110, 168, 254, 0.25);
   transform: translateY(-4px);
 }
 
@@ -1365,7 +1365,7 @@ section[id] {
   letter-spacing: 0.1em;
   padding: 3px 9px;
   border-radius: 2px;
-  background: rgba(255, 180, 84, 0.1);
+  background: rgba(110, 168, 254, 0.1);
   color: var(--accent);
 }
 
@@ -1556,7 +1556,7 @@ footer {
 
 .footer-social a:hover {
   color: var(--accent);
-  border-color: rgba(255, 180, 84, 0.4);
+  border-color: rgba(110, 168, 254, 0.4);
   transform: translateY(-2px);
 }
 
@@ -1576,8 +1576,8 @@ footer p {
   width: 42px;
   height: 42px;
   border-radius: 3px;
-  background: rgba(255, 180, 84, 0.08);
-  border: 1px solid rgba(255, 180, 84, 0.3);
+  background: rgba(110, 168, 254, 0.08);
+  border: 1px solid rgba(110, 168, 254, 0.3);
   color: var(--accent);
   display: flex;
   align-items: center;
@@ -1597,7 +1597,7 @@ footer p {
 }
 
 .back-to-top:hover {
-  background: rgba(255, 180, 84, 0.16);
+  background: rgba(110, 168, 254, 0.16);
   transform: translateY(-3px);
 }
 
@@ -1634,7 +1634,7 @@ footer p {
 .shortcuts-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(10, 9, 8, 0.72);
+  background: rgba(11, 12, 16, 0.72);
   backdrop-filter: blur(8px);
   z-index: 3000;
   display: flex;
@@ -1692,7 +1692,7 @@ footer p {
   height: 22px;
   padding: 0 6px;
   border-radius: 3px;
-  background: rgba(255, 180, 84, 0.06);
+  background: rgba(110, 168, 254, 0.06);
   border: 1px solid var(--border-strong);
   font-family: var(--font-mono);
   font-size: 10.5px;
@@ -1728,7 +1728,7 @@ footer p {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(10, 9, 8, 0.72);
+  background: rgba(11, 12, 16, 0.72);
   backdrop-filter: blur(8px);
   z-index: 2000;
   display: flex;
@@ -1817,7 +1817,7 @@ footer p {
 
 .modal-body .modal-tech span {
   padding: 5px 12px;
-  background: rgba(255, 180, 84, 0.06);
+  background: rgba(110, 168, 254, 0.06);
   border: 1px solid var(--border);
   border-radius: 2px;
   font-family: var(--font-mono);
@@ -1889,7 +1889,7 @@ footer p {
   justify-content: center;
   cursor: pointer;
   z-index: 900;
-  box-shadow: 0 6px 22px rgba(224, 123, 57, 0.3);
+  box-shadow: 0 6px 22px rgba(63, 111, 214, 0.3);
   transition: all 0.3s ease;
 }
 

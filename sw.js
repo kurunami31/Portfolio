@@ -1,4 +1,4 @@
-var CACHE = 'portfolio-v8';
+var CACHE = 'portfolio-v9';
 var urls = [
   'index.html',
   'style.css',
