@@ -505,6 +505,7 @@ a:focus-visible, button:focus-visible, .project-card:focus-visible {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  flex: 1;
 }
 
 .hero-role {
