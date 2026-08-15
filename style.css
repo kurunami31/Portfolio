@@ -501,6 +501,12 @@ a:focus-visible, button:focus-visible, .project-card:focus-visible {
   justify-content: space-between;
 }
 
+.name-line-stretch {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
 .hero-role {
   font-size: 18px;
   font-weight: 500;
