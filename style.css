@@ -485,15 +485,24 @@ a:focus-visible, button:focus-visible, .project-card:focus-visible {
 
 .name-top {
   display: flex;
-  justify-content: space-between;
   align-items: baseline;
   font-size: clamp(17px, 2vw, 26px);
   font-weight: 500;
-  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--text-secondary);
   white-space: nowrap;
   margin-bottom: 0.6em;
+}
+
+.name-stretch {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.name-rest {
+  letter-spacing: 0.22em;
+  padding-left: 0.4em;
 }
 
 .name-mid {
