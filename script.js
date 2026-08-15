@@ -4,7 +4,6 @@ document.documentElement.setAttribute('data-theme', theme);
 var navbar = document.getElementById('navbar');
 var menuToggle = document.getElementById('menuToggle');
 var mobileOverlay = document.getElementById('mobileOverlay');
-var cursorFollower = document.getElementById('cursorFollower');
 var backToTop = document.getElementById('backToTop');
 var heroDesc = document.getElementById('heroDesc');
 var modalOverlay = document.getElementById('modalOverlay');
@@ -140,27 +139,6 @@ mobileOverlay.querySelectorAll('a').forEach(function (link) {
     menuToggle.setAttribute('aria-expanded', 'false');
     mobileOverlay.classList.remove('open');
     document.body.style.overflow = '';
-  });
-});
-
-document.addEventListener('mousemove', function (e) {
-  cursorFollower.style.left = e.clientX + 'px';
-  cursorFollower.style.top = e.clientY + 'px';
-  cursorFollower.style.opacity = '1';
-});
-
-document.addEventListener('mouseleave', function () {
-  cursorFollower.style.opacity = '0';
-});
-
-document.querySelectorAll('a, button, .project-card').forEach(function (el) {
-  el.addEventListener('mouseenter', function () {
-    cursorFollower.style.width = '40px';
-    cursorFollower.style.height = '40px';
-  });
-  el.addEventListener('mouseleave', function () {
-    cursorFollower.style.width = '24px';
-    cursorFollower.style.height = '24px';
   });
 });
 
@@ -377,7 +355,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
 });
 
 var navLinks = document.getElementById('navLinks');
-var sectionDots = document.querySelectorAll('.dot');
+var sectionDots = document.querySelectorAll('.rail-item');
 var sections = [];
 
 sectionDots.forEach(function (dot) {

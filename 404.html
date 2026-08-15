@@ -8,13 +8,13 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Inter', sans-serif;
-      background: #070707;
-      color: #f5f5f5;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0d0c0a;
+      color: #f2ede4;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -23,9 +23,10 @@
     }
     .container { text-align: center; padding: 24px; }
     .code {
+      font-family: 'Fraunces', Georgia, serif;
       font-size: clamp(96px, 20vw, 180px);
-      font-weight: 900;
-      background: linear-gradient(135deg, #f97316, #d946ef);
+      font-weight: 600;
+      background: linear-gradient(135deg, #ffb454, #e07b39);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -33,15 +34,24 @@
       letter-spacing: -6px;
       margin-bottom: 8px;
     }
-    h1 {
-      font-size: clamp(20px, 3vw, 28px);
-      font-weight: 700;
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #7d766c;
       margin-bottom: 12px;
-      color: #f5f5f5;
+    }
+    h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #f2ede4;
     }
     p {
       font-size: 15px;
-      color: #666;
+      color: #7d766c;
       margin-bottom: 32px;
       line-height: 1.7;
     }
@@ -52,18 +62,19 @@
       font-size: 14px;
       font-weight: 600;
       text-decoration: none;
-      background: linear-gradient(135deg, #f97316, #d946ef);
-      color: #fff;
+      background: #ffb454;
+      color: #1a1206;
       transition: all 0.3s ease;
     }
     .btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(249, 115, 22, 0.25);
+      box-shadow: 0 12px 40px rgba(255, 180, 84, 0.2);
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <div class="mono">404 / Error</div>
     <div class="code">404</div>
     <h1>Page not found</h1>
     <p>This page doesn't exist or has been moved.<br>Let's get you back on track.</p>
