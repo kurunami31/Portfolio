@@ -1,4 +1,4 @@
-var CACHE = 'portfolio-v6';
+var CACHE = 'portfolio-v7';
 var urls = [
   'index.html',
   'style.css',
@@ -6,7 +6,7 @@ var urls = [
   'clm-logo.svg',
   'christopher.webp',
   'codex-logo.png',
-  'fnahs-logo.svg',
+  'fnahs-logo.png',
   'deis-logo.png',
   'favicon.svg',
   'camera-favicon.svg',
