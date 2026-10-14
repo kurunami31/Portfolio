@@ -10,17 +10,16 @@
    ============================================================ */
 
 @theme {
-  --color-ink: #08090d;
-  --color-ink-2: #0c0e13;
+  --color-ink: #0a0a0b;
   --color-paper: #eef1f6;
   --color-muted: #9aa3b2;
   --color-dim: #6a7280;
-  --color-frost: #8fb3e8;
+  --color-frost: #09e3f8;
 }
 
 :root {
-  /* One palette for the whole page: cool neutral base, one desaturated accent. */
-  --ink: #08090d;
+  /* One palette for the whole page: neutral ink, one desaturated accent. */
+  --ink: #0a0a0b;
   --paper: #eef1f6;
   --muted: #9aa3b2;
   --dim: #6a7280;
@@ -31,8 +30,8 @@
   --fill: rgba(238, 241, 246, 0.04);
   --fill-hover: rgba(238, 241, 246, 0.085);
 
-  --accent: #8fb3e8;
-  --accent-dim: rgba(143, 179, 232, 0.16);
+  --accent: #09e3f8;
+  --accent-dim: rgba(9, 227, 248, 0.16);
 
   --font-display: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-body: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -75,7 +74,7 @@ body {
 }
 
 ::selection {
-  background: rgba(143, 179, 232, 0.26);
+  background: rgba(9, 227, 248, 0.26);
   color: #fff;
 }
 
@@ -91,64 +90,43 @@ body {
   isolation: isolate;
 }
 
-/* Ground: depth built from light direction, not decoration.
-   A diagonal fold of light, a cool spotlight seated behind the card, a wash
-   from above, and a vignette to close the corners. Achromatic apart from one
-   desaturated cool accent. No mesh, no blob, no colour drift. */
+/* Ambient light sitting behind the field. */
 .landing::before {
   content: '';
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background:
-    linear-gradient(146deg, rgba(238, 241, 246, 0.06) 0%, rgba(238, 241, 246, 0) 40%),
-    radial-gradient(
-      ellipse 64% 56% at 50% 32%,
-      rgba(143, 179, 232, 0.11) 0%,
-      rgba(143, 179, 232, 0) 64%
-    ),
-    radial-gradient(
-      ellipse 132% 58% at 50% -14%,
-      rgba(238, 241, 246, 0.06) 0%,
-      transparent 58%
-    ),
-    radial-gradient(
-      ellipse 94% 86% at 50% 46%,
-      rgba(8, 9, 13, 0) 42%,
-      rgba(8, 9, 13, 0.78) 100%
-    );
+  background: radial-gradient(
+    ellipse 120% 70% at 50% -12%,
+    rgba(238, 241, 246, 0.045) 0%,
+    transparent 62%
+  );
 }
 
-/* Concentric hairlines centred behind the card — the one deliberate motif.
-   Masked so the rings dissolve well before the corners. */
+/* Vignette. On ::after so it paints over the canvas and closes the corners. */
 .landing::after {
   content: '';
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-image: repeating-radial-gradient(
-    circle at 50% 40%,
-    rgba(238, 241, 246, 0.09) 0px,
-    rgba(238, 241, 246, 0.09) 1px,
-    transparent 1px,
-    transparent 34px
+  background: radial-gradient(
+    ellipse 96% 88% at 50% 46%,
+    rgba(10, 10, 11, 0) 40%,
+    rgba(10, 10, 11, 0.82) 100%
   );
-  -webkit-mask-image: radial-gradient(
-    circle at 50% 40%,
-    #000 0%,
-    rgba(0, 0, 0, 0.78) 34%,
-    rgba(0, 0, 0, 0.28) 58%,
-    transparent 76%
-  );
-  mask-image: radial-gradient(
-    circle at 50% 40%,
-    #000 0%,
-    rgba(0, 0, 0, 0.78) 34%,
-    rgba(0, 0, 0, 0.28) 58%,
-    transparent 76%
-  );
+}
+
+/* The interactive field. Sits under the card, never eats pointer events. */
+.dotfield {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 /* Fixed + pointer-events: none, so it never repaints inside a scrolling box. */
@@ -157,7 +135,7 @@ body {
   inset: 0;
   z-index: 3;
   pointer-events: none;
-  opacity: 0.3;
+  opacity: 0.22;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
   background-repeat: repeat;
 }
@@ -193,6 +171,21 @@ body {
   text-align: center;
 }
 
+/* Brand mark and status share one row so the card gains no extra height. */
+.card__badges {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+.mark {
+  display: block;
+  width: 1.55rem;
+  height: 1.55rem;
+  flex: 0 0 auto;
+}
+
 .portrait {
   display: block;
   width: 7rem;
@@ -222,14 +215,14 @@ body {
   width: 0.36rem;
   height: 0.36rem;
   border-radius: 50%;
-  background: #86d9b0;
+  background: var(--accent);
   animation: status-pulse 2.8s ease-out infinite;
 }
 
 @keyframes status-pulse {
-  0% { box-shadow: 0 0 0 0 rgba(134, 217, 176, 0.45); }
-  70% { box-shadow: 0 0 0 0.36rem rgba(134, 217, 176, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(134, 217, 176, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(9, 227, 248, 0.45); }
+  70% { box-shadow: 0 0 0 0.36rem rgba(9, 227, 248, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(9, 227, 248, 0); }
 }
 
 /* Two-line lockup: light first line, heavy surname. Same family, weight contrast. */
@@ -318,15 +311,15 @@ body {
   height: 2.1rem;
   border-radius: 9px;
   border: 1px solid var(--accent-dim);
-  background: rgba(143, 179, 232, 0.08);
+  background: rgba(9, 227, 248, 0.08);
   color: var(--accent);
   transition: background-color 0.22s ease, color 0.22s ease;
 }
 
 .action:hover .action__icon,
 .action:focus-visible .action__icon {
-  background: rgba(143, 179, 232, 0.14);
-  color: #c3d7f4;
+  background: rgba(9, 227, 248, 0.16);
+  color: #9ff0fb;
 }
 
 .action__text {
@@ -367,22 +360,22 @@ body {
 
 /* One primary action. On a card, "Save Contact" is the reason the page exists. */
 .action--primary {
-  border-color: rgba(143, 179, 232, 0.42);
+  border-color: rgba(9, 227, 248, 0.42);
   background: linear-gradient(
     180deg,
-    rgba(143, 179, 232, 0.20) 0%,
-    rgba(143, 179, 232, 0.10) 100%
+    rgba(9, 227, 248, 0.20) 0%,
+    rgba(9, 227, 248, 0.10) 100%
   );
 }
 
 .action--primary .action__label {
-  color: #dce8fb;
+  color: #d7f8ff;
 }
 
 .action--primary .action__icon {
-  border-color: rgba(143, 179, 232, 0.38);
-  background: rgba(143, 179, 232, 0.22);
-  color: #dce8fb;
+  border-color: rgba(9, 227, 248, 0.40);
+  background: rgba(9, 227, 248, 0.22);
+  color: #d7f8ff;
 }
 
 .action--primary .action__meta,
@@ -392,11 +385,11 @@ body {
 
 .action--primary:hover,
 .action--primary:focus-visible {
-  border-color: rgba(143, 179, 232, 0.66);
+  border-color: rgba(9, 227, 248, 0.66);
   background: linear-gradient(
     180deg,
-    rgba(143, 179, 232, 0.26) 0%,
-    rgba(143, 179, 232, 0.15) 100%
+    rgba(9, 227, 248, 0.26) 0%,
+    rgba(9, 227, 248, 0.15) 100%
   );
 }
 
@@ -415,6 +408,92 @@ body {
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--dim);
+}
+
+/* ---------- branded loader ---------- */
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 5rem;
+  height: 5rem;
+}
+
+.loader-mark__logo {
+  width: 2.85rem;
+  height: 2.85rem;
+  display: block;
+  animation: loader-breathe 1.5s ease-in-out infinite;
+}
+
+.loader-mark__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.loader-mark__track {
+  fill: none;
+  stroke: var(--paper);
+  stroke-opacity: 0.12;
+  stroke-width: 2.5;
+}
+
+/* A fixed quarter arc travelling around the ring — always visible, so it never
+   blinks out mid-cycle. r=46 in a 100 viewBox -> circumference 2*pi*46 = 289.03 */
+.loader-mark__arc {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 72 217.03;
+  animation: loader-spin 1.4s linear infinite;
+}
+
+@keyframes loader-spin {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -289.03; }
+}
+
+@keyframes loader-breathe {
+  0%, 100% { opacity: 0.6; transform: scale(0.93); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-mark__arc {
+    animation: none;
+    stroke-dasharray: 289.03;
+    stroke-dashoffset: 0;
+  }
+
+  .loader-mark__logo {
+    animation: none;
+    opacity: 1;
+  }
+
+  .loader {
+    transition: none;
+  }
 }
 
 /* ---------- split text ---------- */
@@ -453,8 +532,11 @@ body {
 /* ---------- responsive ---------- */
 
 /* Vertical compaction is driven by viewport HEIGHT, because the constraint is
-   fitting one card into one screen. Width only scales type and the portrait. */
-@media (max-height: 60rem) {
+   fitting one card into one screen. Width only scales type and the portrait.
+   Three tiers, so a short laptop and a small phone each get something sane. */
+
+/* compact — a typical 900px-tall laptop */
+@media (max-height: 62rem) {
   :root {
     --row-h: 3.2rem;
   }
@@ -482,24 +564,97 @@ body {
   }
 }
 
-/* Landscape phones — the card gets genuinely short. */
-@media (max-height: 46rem) and (min-width: 40rem) {
+/* tighter — 800px and below */
+@media (max-height: 50rem) {
   :root {
-    --row-h: 3rem;
+    --row-h: 2.95rem;
+  }
+
+  .landing {
+    padding-block: 0.9rem;
   }
 
   .card {
     gap: 0.85rem;
-    padding: 1.15rem;
+    padding: 1.1rem;
+  }
+
+  .card__head {
+    gap: 0.5rem;
   }
 
   .portrait {
-    width: 4rem;
-    height: 4rem;
+    width: 4.25rem;
+    height: 4.25rem;
   }
 
   .name {
-    font-size: clamp(1.4rem, 3.4vw, 1.75rem);
+    font-size: clamp(1.5rem, 4.6vw, 1.8rem);
+  }
+
+  .mark {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+}
+
+/* very tight — small phones and short laptops. Row height stays at 44.8px so
+   tap targets never drop below the 44px comfortable minimum. */
+@media (max-height: 44rem) {
+  :root {
+    --row-h: 2.8rem;
+  }
+
+  .landing {
+    padding-block: 0.5rem;
+  }
+
+  .card {
+    gap: 0.6rem;
+    padding: 0.85rem;
+  }
+
+  .card__head {
+    gap: 0.35rem;
+  }
+
+  .portrait {
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+
+  .name {
+    font-size: clamp(1.3rem, 3.8vw, 1.5rem);
+  }
+
+  .role {
+    font-size: 0.56rem;
+  }
+
+  .actions {
+    gap: 0.25rem;
+  }
+
+  .action {
+    padding: 0.4rem 0.7rem;
+  }
+
+  .action__label {
+    font-size: 0.875rem;
+  }
+
+  .action__meta {
+    font-size: 0.56rem;
+  }
+
+  .action__icon {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+
+  .card__foot {
+    padding-top: 0.4rem;
+    font-size: 0.52rem;
   }
 }
 

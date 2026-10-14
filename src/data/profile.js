@@ -14,7 +14,7 @@ export const PROFILE = {
   phoneLabel: '+63 961 892 2942',
   phoneAlt: '+639566501308',
 
-  facebook: 'https://www.facebook.com/Christoph3101',
+  facebook: 'https://facebook.com/Christoph3101',
   facebookHandle: '@Christoph3101',
   instagram: 'https://www.instagram.com/thechristopher_d/',
   instagramHandle: '@thechristopher_d',

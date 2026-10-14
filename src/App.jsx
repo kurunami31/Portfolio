@@ -1,5 +1,7 @@
 import Magnet from './components/reactbits/Magnet.jsx';
 import SplitText from './components/reactbits/SplitText.jsx';
+import DotField from './components/DotField.jsx';
+import BrandLoader from './components/BrandLoader.jsx';
 
 import {
   MailIcon,
@@ -79,7 +81,10 @@ const ACTIONS = [
 
 export default function App() {
   return (
-    <div className="landing">
+    <>
+      <BrandLoader />
+      <div className="landing">
+      <DotField />
       <div className="grain" aria-hidden="true" />
 
       <main className="card">
@@ -94,10 +99,13 @@ export default function App() {
             decoding="async"
           />
 
-          <p className="status">
-            <span className="status__dot" aria-hidden="true" />
-            Open to opportunities
-          </p>
+          <div className="card__badges">
+            <img className="mark" src="logo.png" alt="" width="256" height="256" />
+            <p className="status">
+              <span className="status__dot" aria-hidden="true" />
+              Open to opportunities
+            </p>
+          </div>
 
           <h1 className="name">
             <span className="name__line">
@@ -163,6 +171,7 @@ export default function App() {
           <span>{PROFILE.place}</span>
         </footer>
       </main>
-    </div>
+      </div>
+    </>
   );
 }

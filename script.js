@@ -350,53 +350,6 @@ function updateActiveDot() {
 window.addEventListener('scroll', updateActiveDot, { passive: true });
 updateActiveDot();
 
-var repoGrid = document.getElementById('repoGrid');
-
-function fetchRepos() {
-  fetch('https://api.github.com/users/kurunami31/repos?sort=updated&per_page=6&type=public')
-    .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-    .then(function (data) {
-      repoGrid.innerHTML = data.map(function (repo) {
-        var langColor = repo.language ? langColors[repo.language] || '#666' : '#666';
-        return '<div class="repo-card">' +
-          '<a href="' + repo.html_url + '" target="_blank" class="repo-name">' + repo.name + '</a>' +
-          (repo.description ? '<p class="repo-desc">' + repo.description + '</p>' : '') +
-          '<div class="repo-meta">' +
-          '<span><span class="repo-lang-dot" style="background:' + langColor + '"></span>' + (repo.language || 'N/A') + '</span>' +
-          '<span>&#9733; ' + (repo.stargazers_count || 0) + '</span>' +
-          '<span>&#9660; ' + (repo.forks_count || 0) + '</span>' +
-          '</div></div>';
-      }).join('');
-    })
-    .catch(function () {
-      repoGrid.innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:40px;font-size:14px;">Could not load repos.</p>';
-    });
-}
-
-var langColors = {
-  'JavaScript': '#f1e05a', 'Python': '#3572A5', 'HTML': '#e34c26',
-  'CSS': '#563d7c', 'PHP': '#4F5D95', 'TypeScript': '#3178c6',
-  'Java': '#b07219', 'C++': '#f34b7d', 'C': '#555555',
-  'Ruby': '#701516', 'Go': '#00ADD8', 'Rust': '#dea584',
-  'Swift': '#ffac45', 'Kotlin': '#F18E33', 'Dart': '#00B4AB',
-  'Shell': '#89e051', 'Jupyter Notebook': '#DA5B0B'
-};
-
-fetchRepos();
-
-var favIcon = document.querySelector('link[rel="icon"]');
-var favicons = ['../favicon.svg', '../camera-favicon.svg'];
-var favIndex = 0;
-
-function toggleFavicon() {
-  favIndex = (favIndex + 1) % favicons.length;
-  if (favIcon) favIcon.setAttribute('href', favicons[favIndex]);
-}
-
-document.addEventListener('visibilitychange', function () {
-  if (document.hidden) toggleFavicon();
-});
-
 // -- Keyboard shortcuts --
 
 var shortcutsOverlay = document.getElementById('shortcutsOverlay');

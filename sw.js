@@ -1,18 +1,22 @@
-var CACHE = 'portfolio-v19';
+var CACHE = 'portfolio-v20';
 var urls = [
   'index.html',
   'style.css',
   'script.js',
-  'clm-logo.svg',
+  'logo.png',
   'christopher.webp',
   'codex-logo.png',
   'fnahs-logo.png',
   'deis-logo.png',
   'favicon.svg',
-  'camera-favicon.svg',
+  'favicon-32.png',
+  'apple-touch-icon.png',
   'og-image.webp',
+  'christopher.vcf',
+  'qr.svg',
   'sitemap.xml',
   '404.html',
+  'portfolio/index.html',
   'blog/index.html',
   'blog/building-for-student-orgs.html',
   'case-studies/codex.html'
