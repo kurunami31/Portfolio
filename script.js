@@ -14,35 +14,8 @@ var themeToggle = document.getElementById('themeToggle');
 var loader = document.getElementById('loader');
 
 
+// Order matters: the data-project index on each card maps into this array.
 var projects = [
-  {
-    name: 'SweetWorks Pastry Shop',
-    tagline: 'Artisan pastries, custom cakes & dessert services',
-    description: 'A full web presence for SweetWorks, an artisan pastry shop based in Mati City, Davao Oriental. The site showcases their product offerings, highlights their custom cake design services, and provides an online storefront experience for customers.',
-    tech: ['Python', 'Flask', 'Bootstrap', 'JavaScript', 'Render'],
-    features: [
-      'Product catalog with categories',
-      'Custom cake ordering inquiries',
-      'Business information and location',
-      'Social media integration'
-    ],
-    url: 'https://sweetworks.onrender.com/',
-    caseStudy: 'case-studies/sweetworks.html'
-  },
-  {
-    name: 'Resibooth',
-    tagline: 'Self-service photo booth platform',
-    description: 'A self-service photo booth platform that brings the photo booth experience online. Users can capture photos, apply customizations, and share their creations digitally without needing physical photo booth hardware.',
-    tech: ['Python', 'Flask', 'JavaScript', 'HTML & CSS', 'Render'],
-    features: [
-      'Virtual photo capture and customization',
-      'Digital photo sharing capabilities',
-      'User-friendly interface',
-      'Fully browser-based, no downloads needed'
-    ],
-    url: 'https://resibooth.onrender.com/',
-    caseStudy: 'case-studies/resibooth.html'
-  },
   {
     name: 'CODEX',
     tagline: 'CODEBYTERS · BSIT Community Platform',
@@ -55,7 +28,7 @@ var projects = [
       'Built-in AI assistant, online 24/7'
     ],
     url: 'https://bsitcodex.vercel.app/',
-    caseStudy: 'case-studies/codex.html'
+    caseStudy: '../case-studies/codex.html'
   },
   {
     name: 'FNAHS · PULSO',
@@ -82,20 +55,6 @@ var projects = [
       'Institution-level analytics and reporting'
     ],
     url: 'https://deis-portal.vercel.app/'
-  },
-  {
-    name: 'DOrSU eSPORTS',
-    tagline: 'Home of the Stallions · Esports Organization',
-    description: 'DOrSU eSPORTS is the official esports organization of Davao Oriental State University. A dedicated platform for the Stallions — tournament matching, team registrations, and announcements, all in one place for the campus esports community.',
-    tech: ['JavaScript', 'HTML & CSS', 'Vercel'],
-    features: [
-      'Tournament matching for the Stallions',
-      'Team registrations and roster management',
-      'Announcements and event updates',
-      'Campus esports community hub'
-    ],
-    url: 'https://dorsu-esports.vercel.app/',
-    caseStudy: 'case-studies/dorsu-esports.html'
   }
 ];
 
@@ -426,7 +385,7 @@ var langColors = {
 fetchRepos();
 
 var favIcon = document.querySelector('link[rel="icon"]');
-var favicons = ['favicon.svg', 'camera-favicon.svg'];
+var favicons = ['../favicon.svg', '../camera-favicon.svg'];
 var favIndex = 0;
 
 function toggleFavicon() {

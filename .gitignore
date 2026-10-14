@@ -1,6 +1,13 @@
+# build output
+node_modules/
+dist/
+
+# tooling scratch
+.playwright-mcp/
+
+# images: ignore by default, allow the ones the site actually uses
 *.jpg
 !Christopher.jpg
-!SweetWorks(logo).jpg
-!esports logo.jpg
 /FNAHS.png
+
 !.gitignore

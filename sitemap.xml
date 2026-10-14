@@ -2,8 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://kurunami31.github.io/Portfolio/</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://kurunami31.github.io/Portfolio/portfolio/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://kurunami31.github.io/Portfolio/404.html</loc>
@@ -16,22 +21,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://kurunami31.github.io/Portfolio/case-studies/sweetworks.html</loc>
-    <lastmod>2026-08-15</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://kurunami31.github.io/Portfolio/case-studies/resibooth.html</loc>
-    <lastmod>2026-08-15</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://kurunami31.github.io/Portfolio/case-studies/codex.html</loc>
-    <lastmod>2026-08-15</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://kurunami31.github.io/Portfolio/case-studies/dorsu-esports.html</loc>
     <lastmod>2026-08-15</lastmod>
     <priority>0.7</priority>
   </url>

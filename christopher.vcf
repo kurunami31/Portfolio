@@ -1,0 +1,17 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Mercado;Christopher Lyod B.;;;
+FN:Christopher Lyod B. Mercado
+NICKNAME:Christopher
+ORG:Davao Oriental State University
+TITLE:Web Developer - BSIT Student
+EMAIL;TYPE=INTERNET,WORK:dms.prime3101@gmail.com
+EMAIL;TYPE=INTERNET,WORK:dms.official31@yahoo.com
+TEL;TYPE=CELL,VOICE:+639618922942
+TEL;TYPE=CELL,VOICE:+639566501308
+URL:https://kurunami31.github.io/Portfolio/
+X-SOCIALPROFILE;TYPE=facebook:https://www.facebook.com/Christoph3101
+X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/thechristopher_d/
+ADR;TYPE=HOME:;;Mati City;;;Philippines
+NOTE:Web developer building community platforms and web systems.
+END:VCARD

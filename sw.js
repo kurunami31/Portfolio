@@ -1,4 +1,4 @@
-var CACHE = 'portfolio-v18';
+var CACHE = 'portfolio-v19';
 var urls = [
   'index.html',
   'style.css',
@@ -15,10 +15,7 @@ var urls = [
   '404.html',
   'blog/index.html',
   'blog/building-for-student-orgs.html',
-  'case-studies/sweetworks.html',
-  'case-studies/resibooth.html',
-  'case-studies/codex.html',
-  'case-studies/dorsu-esports.html'
+  'case-studies/codex.html'
 ];
 
 self.addEventListener('install', function (e) {

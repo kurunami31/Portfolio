@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Print QR Card — Christopher Lyod B. Mercado</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Printable QR code sized for an NFC business card.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      background: #14161c;
+      color: #e8eaf0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      padding: 40px 20px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: 8px;
+      border: 1px solid rgba(232, 234, 240, 0.18);
+      background: transparent;
+      color: #b0b4c0;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover { color: #fff; border-color: rgba(232, 234, 240, 0.35); }
+
+    .btn--primary {
+      background: linear-gradient(135deg, #6ea8fe, #3f6fd6);
+      border-color: transparent;
+      color: #fff;
+    }
+
+    .btn--primary:hover { box-shadow: 0 10px 30px rgba(110, 168, 254, 0.25); }
+
+    .note {
+      max-width: 460px;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #848a99;
+    }
+
+    .note strong { color: #b0b4c0; font-weight: 600; }
+
+    /* ---- the card: ISO/IEC 7810 ID-1, the size of a credit card / NFC card ---- */
+
+    .sheet { display: flex; flex-direction: column; gap: 22px; align-items: center; }
+
+    .card {
+      width: 85mm;
+      height: 54mm;
+      background: #ffffff;
+      color: #07080c;
+      display: flex;
+      align-items: center;
+      gap: 5mm;
+      padding: 5mm;
+      border-radius: 3mm;
+      outline: 1px dashed #6d7789;
+      outline-offset: 4px;
+      box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.8);
+    }
+
+    .card__qr { flex: 0 0 auto; }
+
+    .card__qr img {
+      display: block;
+      width: 26mm;
+      height: 26mm;
+      image-rendering: pixelated;
+    }
+
+    .card__body { display: flex; flex-direction: column; gap: 2.2mm; min-width: 0; }
+
+    .card__name {
+      font-size: 4.1mm;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .card__rule {
+      height: 0.5mm;
+      width: 12mm;
+      background: #3f6fd6;
+      border-radius: 1mm;
+    }
+
+    .card__role {
+      font-size: 2.5mm;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #3f6fd6;
+    }
+
+    .card__meta {
+      font-size: 2.4mm;
+      line-height: 1.55;
+      color: #4b5160;
+    }
+
+    .card__meta b { font-weight: 600; color: #16181d; }
+
+    .card__url {
+      font-size: 2.2mm;
+      font-family: ui-monospace, Consolas, monospace;
+      color: #73798a;
+      word-break: break-all;
+    }
+
+    .caption {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #6d7789;
+      font-family: ui-monospace, Consolas, monospace;
+    }
+
+    /* ---- print ---- */
+
+    @page { margin: 12mm; }
+
+    @media print {
+      body {
+        background: #fff;
+        color: #000;
+        display: block;
+        padding: 0;
+      }
+
+      .toolbar,
+      .note,
+      .caption { display: none; }
+
+      .sheet { display: block; }
+
+      .card {
+        box-shadow: none;
+        outline: 1px solid #c9ccd4;
+        outline-offset: 0;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button class="btn btn--primary" onclick="window.print()">Print this card</button>
+    <a class="btn" href="../qr.svg" download="christopher-mercado-qr.svg">Download QR (SVG)</a>
+    <a class="btn" href="../qr-1024.png" download="christopher-mercado-qr.png">Download QR (PNG)</a>
+    <a class="btn" href="../">&larr; Back to card</a>
+  </div>
+
+  <div class="sheet">
+    <p class="caption">Actual size &middot; 85 &times; 54 mm</p>
+
+    <div class="card">
+      <div class="card__qr">
+        <img src="../qr.svg" alt="QR code linking to Christopher's portfolio" width="98" height="98">
+      </div>
+      <div class="card__body">
+        <div>
+          <div class="card__name">Christopher<br>Lyod B. Mercado</div>
+          <div class="card__rule" style="margin-top:1.6mm;"></div>
+        </div>
+        <div class="card__role">Web Developer</div>
+        <div class="card__meta">
+          <b>dms.prime3101@gmail.com</b><br>
+          +63 961 892 2942<br>
+          Mati City, Philippines
+        </div>
+        <div class="card__url">kurunami31.github.io/Portfolio/</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="note">
+    Print at <strong>100% scale</strong> — do not let the printer "fit to page", or the card will
+    come out undersized. Scan the code with your phone camera to check it opens the right page
+    before cutting it out.
+  </p>
+
+</body>
+</html>

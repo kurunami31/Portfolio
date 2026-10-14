@@ -1489,6 +1489,15 @@ section[id] {
   color: var(--accent);
 }
 
+.contact-note {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-left: 6px;
+}
+
 .social-links {
   display: flex;
   flex-direction: column;
