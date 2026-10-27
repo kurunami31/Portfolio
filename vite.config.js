@@ -37,6 +37,8 @@ const STATIC_PATHS = [
   'logo.png',
   'christopher.webp',
   'og-image.webp',
+  'hero-bg.mp4',
+  'hero-poster.webp',
   'codebyterts-logo.gif',
   'fnahs-logo.png',
   'deis-logo.png',

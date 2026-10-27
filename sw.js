@@ -1,9 +1,10 @@
-var CACHE = 'portfolio-v20';
+var CACHE = 'portfolio-v21';
 var urls = [
   'index.html',
   'style.css',
   'script.js',
   'logo.png',
+  'hero-poster.webp',
   'christopher.webp',
   'codex-logo.png',
   'fnahs-logo.png',

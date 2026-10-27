@@ -123,6 +123,24 @@ if (heroDesc) {
   typeWriter(heroDesc, text, 18);
 }
 
+// Hero motion background: only fetch the clip on wide screens and when the
+// visitor has not asked for reduced motion. Everyone else keeps the poster.
+var heroVideo = document.getElementById('heroVideo');
+if (heroVideo) {
+  var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reducedMotion && window.innerWidth >= 768) {
+    var videoSrc = heroVideo.getAttribute('data-src');
+    if (videoSrc) {
+      heroVideo.addEventListener('playing', function () {
+        heroVideo.classList.add('is-ready');
+      });
+      heroVideo.src = videoSrc;
+      var playPromise = heroVideo.play();
+      if (playPromise && playPromise.catch) playPromise.catch(function () {});
+    }
+  }
+}
+
 backToTop.addEventListener('click', function () {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
