@@ -14,7 +14,6 @@ const root = import.meta.dirname;
  */
 const STATIC_PATHS = [
   'blog',
-  'card',
   'case-studies',
   'cv',
   'portfolio',
